@@ -5,14 +5,15 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
+using TaskTimeTracker.Client.Contract;
 
 namespace TaskTimeTracker.Client {
-  internal class MainWindowViewModel : INotifyPropertyChanged {
-    private ObservableCollection<Task> _tasks;
-    private Task _selectedTask;
+  internal class MainWindowViewModel : IMainWindowViewModel {
+    private ObservableCollection<ITask> _tasks;
+    private ITask _selectedTask;
     private Visibility _mainWindowVisibility;
 
-    public ObservableCollection<Task> Tasks {
+    public ObservableCollection<ITask> Tasks {
       get { return this._tasks; }
       set {
         this._tasks = value;
@@ -20,7 +21,7 @@ namespace TaskTimeTracker.Client {
       }
     }
 
-    public Task SelectedTask {
+    public ITask SelectedTask {
       get { return this._selectedTask; }
       set {
         this._selectedTask = value;
@@ -39,8 +40,8 @@ namespace TaskTimeTracker.Client {
     public ICommand AddCommand { get; set; }
     public ICommand RemoveCommand { get; set; }
 
-    public MainWindowViewModel(IEnumerable<Task> tasks) {
-      this.Tasks = new ObservableCollection<Task>(tasks);
+    public MainWindowViewModel(IEnumerable<ITask> tasks) {
+      this.Tasks = new ObservableCollection<ITask>(tasks);
       this.AddCommand = new RelayCommand(AddExecute);
       this.RemoveCommand = new RelayCommand(RemoveExecute, o => this.SelectedTask != null);
       this.MainWindowVisibility = Visibility.Visible;

@@ -2,9 +2,10 @@
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
+using TaskTimeTracker.Client.Contract;
 
 namespace TaskTimeTracker.Client {
-  class InboxViewModel : INotifyPropertyChanged {
+  public class InboxViewModel : IInboxViewModel {
     private readonly Window _window;
     private string _text;
 

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using TaskTimeTracker.Client.Contract;
 
 namespace TaskTimeTracker.Client {
-  internal class Task : INotifyPropertyChanged {
+  public class Task : INotifyPropertyChanged, ITask {
     private DateTime _creationTime;
     private string _tag;
 
