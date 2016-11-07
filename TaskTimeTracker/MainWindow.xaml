@@ -10,23 +10,83 @@
   Height="350"
   mc:Ignorable="d">
   <Window.Resources>
-    <Style x:Key="ListboxStyle" TargetType="ListBoxItem">
-      <Style.Resources>
-        <!--  SelectedItem with focus  -->
-        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
-        <!--  SelectedItem without focus  -->
-        <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent" />
-        <!--  SelectedItem text foreground  -->
-        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
-      </Style.Resources>
-      <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+    <Style x:Key="MinimalizedButton" TargetType="Button">
+      <Setter Property="Background" Value="White" />
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="Button">
+            <Border
+              Padding="{TemplateBinding Padding}"
+              Background="{TemplateBinding Background}"
+              BorderBrush="{TemplateBinding BorderBrush}"
+              BorderThickness="1">
+              <TextBlock Text="{TemplateBinding Content}" />
+            </Border>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+      <Style.Triggers>
+        <Trigger Property="IsMouseOver" Value="True">
+          <Setter Property="Background" Value="#FFDDDDDD" />
+          <Setter Property="BorderBrush" Value="Gray" />
+        </Trigger>
+        <Trigger Property="IsPressed" Value="True">
+          <Setter Property="Background" Value="#FFEEEEEE" />
+        </Trigger>
+      </Style.Triggers>
     </Style>
     <DataTemplate x:Key="TaskDataTemplate" DataType="client:Task">
-      <StackPanel Orientation="Horizontal">
-        <TextBlock Text="{Binding CreationTime, StringFormat=HH:mm}" />
-        <TextBlock Text=" - " />
-        <TextBlock Text="{Binding Tag}" />
-      </StackPanel>
+      <Border Background="Transparent">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+          <Button
+            Grid.Row="0"
+            Grid.Column="1"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            Content="x"
+            Style="{StaticResource MinimalizedButton}" />
+          <Grid
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="0,2,0,0">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel
+              Grid.Column="0"
+              VerticalAlignment="Center"
+              Orientation="Horizontal">
+              <TextBlock Text="{Binding CreationTime.Hour, StringFormat={}{0:0#.##}}" />
+              <TextBlock Text=":" />
+              <TextBlock Text="{Binding CreationTime.Minute, StringFormat={}{0:0#.##}}" />
+              <TextBlock Text=" - " />
+            </StackPanel>
+            <TextBlock
+              Grid.Column="1"
+              Text="{Binding Tag}"
+              TextWrapping="WrapWithOverflow" />
+          </Grid>
+          <Button
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Padding="10,0"
+            HorizontalAlignment="Right"
+            Content="Edit"
+            Style="{StaticResource MinimalizedButton}" />
+        </Grid>
+      </Border>
     </DataTemplate>
     <DataTemplate x:Key="EditTaskDataTemplate" DataType="client:Task">
       <Grid>
@@ -89,7 +149,7 @@
     <ListBox
       Grid.Column="0"
       HorizontalContentAlignment="Stretch"
-      ItemTemplate="{StaticResource EditTaskDataTemplate}"
+      ItemTemplate="{StaticResource TaskDataTemplate}"
       ItemsSource="{Binding Tasks}"
       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
       SelectedItem="{Binding SelectedTask}" />
@@ -99,3 +159,4 @@
     </StackPanel>
   </Grid>
 </Window>
+

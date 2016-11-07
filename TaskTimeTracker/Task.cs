@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using TaskTimeTracker.Client.Contract;
 
 namespace TaskTimeTracker.Client {

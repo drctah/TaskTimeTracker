@@ -52,16 +52,19 @@ namespace TaskTimeTracker.Client {
     }
 
     private void AddExecute(object o) {
-      Inbox inbox = new Inbox();
-      InboxViewModel vm = new InboxViewModel(inbox);
-      inbox.DataContext = vm;
-      bool? b = inbox.ShowDialog();
+      //Inbox inbox = new Inbox();
+      //InboxViewModel vm = new InboxViewModel(inbox);
+      //inbox.DataContext = vm;
+      //bool? b = inbox.ShowDialog();
 
-      if (!b.HasValue || !b.Value) { return; }
+      //if (!b.HasValue || !b.Value) { return; }
 
-      string text = vm.Text;
+      //string text = vm.Text;
+      string text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr";
 
-      this.Tasks.Add(new Task(DateTime.Now, text));
+      DateTime dateTime = DateTime.Now;
+      //DateTime dateTime = new DateTime(2016, 11, 10, 1, 1, 1);
+      this.Tasks.Add(new Task(dateTime, text));
     }
 
 
