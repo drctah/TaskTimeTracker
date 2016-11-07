@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace TaskTimeTracker {
+namespace TaskTimeTracker.Client {
   /// <summary>
   /// A simple relay Command for easy use of the Command pattern.
   /// </summary>
@@ -44,11 +44,11 @@ namespace TaskTimeTracker {
     /// <remarks></remarks>
     [DebuggerStepThrough]
     public bool CanExecute(object parameter) {
-      if (canExecute == null) {
+      if (this.canExecute == null) {
         return true;
       }
 
-      return canExecute(parameter);
+      return this.canExecute(parameter);
     }
 
     /// <summary>
@@ -66,7 +66,7 @@ namespace TaskTimeTracker {
     /// <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to null.</param>
     /// <remarks></remarks>
     public void Execute(object parameter) {
-      execute(parameter);
+      this.execute(parameter);
     }
   }
 }

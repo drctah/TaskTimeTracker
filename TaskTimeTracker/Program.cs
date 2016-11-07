@@ -4,7 +4,7 @@ using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace TaskTimeTracker {
+namespace TaskTimeTracker.Client {
   public class Program : IDisposable {
     private NotifyIcon _notifyIcon;
     private Stream _iconStream;
@@ -22,7 +22,7 @@ namespace TaskTimeTracker {
     public Program() {
       this._iconStream = GetType().Assembly.GetManifestResourceStream("TaskTimeTracker.Clock.ico");
 
-      if (_iconStream == null) { throw new InvalidOperationException(); }
+      if (this._iconStream == null) { throw new InvalidOperationException(); }
 
       this.Shutdown = false;
 
@@ -35,7 +35,7 @@ namespace TaskTimeTracker {
       MenuItem[] menuItems = { menuItem };
 
       this._notifyIcon.ContextMenu = new ContextMenu(menuItems);
-      this._notifyIcon.Icon = new System.Drawing.Icon(_iconStream);
+      this._notifyIcon.Icon = new System.Drawing.Icon(this._iconStream);
       this._notifyIcon.DoubleClick += NotifyIconOnDoubleClick;
 
       this._closed = true;
@@ -71,9 +71,9 @@ namespace TaskTimeTracker {
 
     private void OpenWindowRun() {
       this.mainWindow = new MainWindow();
-      mainWindow.DataContext = new MainWindowViewModel(this._tasks);
-      mainWindow.Closed += MainWindowOnClosed;
-      mainWindow.ShowDialog();
+      this.mainWindow.DataContext = new MainWindowViewModel(this._tasks);
+      this.mainWindow.Closed += MainWindowOnClosed;
+      this.mainWindow.ShowDialog();
     }
 
     private void MainWindowOnClosed(object sender, EventArgs eventArgs) {
@@ -92,13 +92,13 @@ namespace TaskTimeTracker {
       OpenWindow();
       this._notifyIcon.Visible = true;
 
-      while (!Shutdown) {
+      while (!this.Shutdown) {
         System.Threading.Thread.CurrentThread.Join(100);
       }
     }
 
     public void Dispose() {
-      _iconStream?.Dispose();
+      this._iconStream?.Dispose();
     }
   }
 }

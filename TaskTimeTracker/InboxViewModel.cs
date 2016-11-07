@@ -1,10 +1,9 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 
-namespace TaskTimeTracker {
+namespace TaskTimeTracker.Client {
   class InboxViewModel : INotifyPropertyChanged {
     private readonly Window _window;
     private string _text;
@@ -14,17 +13,17 @@ namespace TaskTimeTracker {
     public ICommand AbortCommand { get; set; }
 
     public string Text {
-      get { return _text; }
+      get { return this._text; }
       set {
-        _text = value;
+        this._text = value;
         OnPropertyChanged();
       }
     }
 
     public InboxViewModel(Window window) {
-      _window = window;
-      OkCommand = new RelayCommand(OkCommandExecute);
-      AbortCommand = new RelayCommand(AbortCommandExecute);
+      this._window = window;
+      this.OkCommand = new RelayCommand(OkCommandExecute);
+      this.AbortCommand = new RelayCommand(AbortCommandExecute);
     }
 
     private void AbortCommandExecute(object o) {
@@ -40,7 +39,7 @@ namespace TaskTimeTracker {
     public event PropertyChangedEventHandler PropertyChanged;
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {
-      PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+      this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
   }
 }
