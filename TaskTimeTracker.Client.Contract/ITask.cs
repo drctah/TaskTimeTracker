@@ -8,7 +8,8 @@ namespace TaskTimeTracker.Client.Contract {
     /// <summary>
     /// Date of Creation
     /// </summary>
-    DateTime CreationTime { get; set; }
+    EditableDateTime CreationTime { get; set; }
+
     /// <summary>
     /// The Tag of the Task
     /// </summary>
