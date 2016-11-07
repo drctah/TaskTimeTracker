@@ -1,8 +1,7 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 
-namespace TaskTimeTracker {
+namespace TaskTimeTracker.Client {
   /// <summary>
   /// Interaction logic for Inbox.xaml
   /// </summary>

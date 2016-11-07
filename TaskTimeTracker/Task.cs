@@ -2,28 +2,28 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace TaskTimeTracker {
+namespace TaskTimeTracker.Client {
   internal class Task : INotifyPropertyChanged {
     private DateTime _creationTime;
     private string _tag;
 
     public Task(DateTime now, string text) {
-      CreationTime = now;
-      Tag = text;
+      this.CreationTime = now;
+      this.Tag = text;
     }
 
     public DateTime CreationTime {
-      get { return _creationTime; }
+      get { return this._creationTime; }
       set {
-        _creationTime = value;
+        this._creationTime = value;
         OnPropertyChanged();
       }
     }
 
     public string Tag {
-      get { return _tag; }
+      get { return this._tag; }
       set {
-        _tag = value;
+        this._tag = value;
         OnPropertyChanged();
       }
     }
@@ -31,7 +31,7 @@ namespace TaskTimeTracker {
     public event PropertyChangedEventHandler PropertyChanged;
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {
-      PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+      this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
   }
 }
