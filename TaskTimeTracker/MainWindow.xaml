@@ -1,29 +1,101 @@
-﻿<Window x:Class="TaskTimeTracker.Client.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:client="clr-namespace:TaskTimeTracker.Client"
-        mc:Ignorable="d" Title="MainWindow" Height="350" Width="525">
+﻿<Window
+  x:Class="TaskTimeTracker.Client.MainWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:client="clr-namespace:TaskTimeTracker.Client"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  Title="MainWindow"
+  Width="525"
+  Height="350"
+  mc:Ignorable="d">
+  <Window.Resources>
+    <Style x:Key="ListboxStyle" TargetType="ListBoxItem">
+      <Style.Resources>
+        <!--  SelectedItem with focus  -->
+        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+        <!--  SelectedItem without focus  -->
+        <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent" />
+        <!--  SelectedItem text foreground  -->
+        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+      </Style.Resources>
+      <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+    </Style>
+    <DataTemplate x:Key="TaskDataTemplate" DataType="client:Task">
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Text="{Binding CreationTime, StringFormat=HH:mm}" />
+        <TextBlock Text=" - " />
+        <TextBlock Text="{Binding Tag}" />
+      </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="EditTaskDataTemplate" DataType="client:Task">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition />
+          <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <TextBox
+            Grid.Column="0"
+            Width="20"
+            Text="{Binding CreationTime.Hour}" />
+          <TextBlock
+            Grid.Column="1"
+            Margin="2,0"
+            Text=":" />
+          <TextBox
+            Grid.Column="2"
+            Width="20"
+            Text="{Binding CreationTime.Minute}" />
+          <TextBlock
+            Grid.Column="3"
+            Margin="3,0"
+            Text="-" />
+          <TextBox Grid.Column="4" Text="{Binding Tag}" />
+        </Grid>
+        <Grid
+          Grid.Row="1"
+          Margin="0,5,0,0"
+          HorizontalAlignment="Right">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+          </Grid.ColumnDefinitions>
+          <Button
+            Grid.Column="0"
+            Width="50"
+            Content="Save" />
+          <Button
+            Grid.Column="1"
+            Width="50"
+            Margin="5,0,0,0"
+            Content="Abort" />
+        </Grid>
+      </Grid>
+    </DataTemplate>
+  </Window.Resources>
   <Grid>
     <Grid.ColumnDefinitions>
-      <ColumnDefinition/>
-      <ColumnDefinition/>
+      <ColumnDefinition />
+      <ColumnDefinition />
     </Grid.ColumnDefinitions>
-    <ListBox Grid.Column="0" ItemsSource="{Binding Tasks}" SelectedItem="{Binding SelectedTask}">
-      <ListBox.ItemTemplate>
-        <DataTemplate DataType="client:Task">
-          <StackPanel Orientation="Horizontal">
-            <TextBlock Text="{Binding CreationTime, StringFormat=HH:mm:ss}"/>
-            <TextBlock Text=" - "/>
-            <TextBlock Text="{Binding Tag}" />
-          </StackPanel>
-        </DataTemplate>
-      </ListBox.ItemTemplate>
-    </ListBox>
+    <ListBox
+      Grid.Column="0"
+      HorizontalContentAlignment="Stretch"
+      ItemTemplate="{StaticResource EditTaskDataTemplate}"
+      ItemsSource="{Binding Tasks}"
+      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+      SelectedItem="{Binding SelectedTask}" />
     <StackPanel Grid.Column="1">
-      <Button Content="Add" Command="{Binding AddCommand}"></Button>
-      <Button Content="Remove" Command="{Binding RemoveCommand}"></Button>
+      <Button Command="{Binding AddCommand}" Content="Add" />
+      <Button Command="{Binding RemoveCommand}" Content="Remove" />
     </StackPanel>
   </Grid>
 </Window>
