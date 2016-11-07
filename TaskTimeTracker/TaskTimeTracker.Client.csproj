@@ -92,6 +92,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Clock.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TaskTimeTracker.Client.Contract\TaskTimeTracker.Client.Contract.csproj">
+      <Project>{A0E93E9B-8D9B-4F7D-944E-F8230F3D4BCF}</Project>
+      <Name>TaskTimeTracker.Client.Contract</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
