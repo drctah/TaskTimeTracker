@@ -5,7 +5,7 @@ using TaskTimeTracker.Client.Contract;
 
 namespace TaskTimeTracker.Client {
   public class Task : INotifyPropertyChanged, ITask {
-    private DateTime _creationTime;
+    private EditableDateTime _creationTime;
     private string _tag;
 
     public Task(DateTime now, string text) {
@@ -13,7 +13,7 @@ namespace TaskTimeTracker.Client {
       this.Tag = text;
     }
 
-    public DateTime CreationTime {
+    public EditableDateTime CreationTime {
       get { return this._creationTime; }
       set {
         this._creationTime = value;
