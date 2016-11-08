@@ -20,7 +20,7 @@ namespace TaskTimeTracker.Client {
     }
 
     public Program() {
-      this._iconStream = GetType().Assembly.GetManifestResourceStream("TaskTimeTracker.Clock.ico");
+      this._iconStream = GetType().Assembly.GetManifestResourceStream("TaskTimeTracker.Client.Clock.ico");
 
       if (this._iconStream == null) { throw new InvalidOperationException(); }
 
