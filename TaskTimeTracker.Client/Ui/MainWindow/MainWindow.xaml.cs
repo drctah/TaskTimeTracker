@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 
 namespace TaskTimeTracker.Client.Ui.MainWindow {
@@ -9,6 +10,11 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     public MainWindow() {
       InitializeComponent();
       this.DataContext = new MainWindowViewModel();
+    }
+
+    private void MainWindow_OnClosing(object sender, CancelEventArgs e) {
+      e.Cancel = true;
+      this.Visibility = Visibility.Hidden;
     }
   }
 }
