@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace TaskTimeTracker.Client {
+namespace TaskTimeTracker.Client.Ui.Commands {
   /// <summary>
   /// A simple relay Command for easy use of the Command pattern.
   /// </summary>

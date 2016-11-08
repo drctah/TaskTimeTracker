@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+using TaskTimeTracker.Client.Ui.ConfigurationWindow;
+using TaskTimeTracker.Client.Ui.MainWindow;
 
 namespace TaskTimeTracker.Client {
   public class Program : IDisposable {
-    private NotifyIcon _notifyIcon;
+    private readonly NotifyIcon _notifyIcon;
     private Stream _iconStream;
     private bool _closed;
-    private MainWindow mainWindow;
+    private Ui.MainWindow.MainWindow mainWindow;
     private ICollection<Task> _tasks;
 
     [STAThread]
@@ -20,10 +22,10 @@ namespace TaskTimeTracker.Client {
     }
 
     public Program() {
-      this._iconStream = GetType().Assembly.GetManifestResourceStream("TaskTimeTracker.Clock.ico");
+      this._iconStream = GetType().Assembly.GetManifestResourceStream("TaskTimeTracker.Client.Clock.ico");
 
       if (this._iconStream == null) { throw new InvalidOperationException(); }
-
+      
       this.Shutdown = false;
 
       this._notifyIcon = new NotifyIcon();
@@ -39,7 +41,6 @@ namespace TaskTimeTracker.Client {
       this._notifyIcon.DoubleClick += NotifyIconOnDoubleClick;
 
       this._closed = true;
-
       this._tasks = new List<Task>();
     }
 
@@ -70,14 +71,14 @@ namespace TaskTimeTracker.Client {
     }
 
     private void OpenWindowRun() {
-      this.mainWindow = new MainWindow();
+      this.mainWindow = new Ui.MainWindow.MainWindow();
       this.mainWindow.DataContext = new MainWindowViewModel(this._tasks);
       this.mainWindow.Closed += MainWindowOnClosed;
       this.mainWindow.ShowDialog();
     }
 
     private void MainWindowOnClosed(object sender, EventArgs eventArgs) {
-      MainWindow window = sender as MainWindow;
+      Ui.MainWindow.MainWindow window = sender as Ui.MainWindow.MainWindow;
       MainWindowViewModel mainWindowViewModel = window.DataContext as MainWindowViewModel;
       this._tasks.Clear();
       foreach (Task task in mainWindowViewModel.Tasks) {
