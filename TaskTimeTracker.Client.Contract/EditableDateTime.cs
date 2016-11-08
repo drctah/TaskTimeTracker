@@ -90,6 +90,16 @@ namespace TaskTimeTracker.Client.Contract {
       }
     }
 
+    public EditableDateTime(EditableDateTime editableDateTime) {
+      this.Year = editableDateTime.Year;
+      this.Month = editableDateTime.Month;
+      this.Day = editableDateTime.Day;
+      this.Hour = editableDateTime.Hour;
+      this.Minute = editableDateTime.Minute;
+      this.Second = editableDateTime.Second;
+      this.Millisecond = editableDateTime.Millisecond;
+    }
+
     public EditableDateTime(DateTime dateTime) {
       this.Year = dateTime.Year;
       this.Month = dateTime.Month;

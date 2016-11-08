@@ -61,6 +61,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="Task.cs" />
+    <Compile Include="TaskValue.cs" />
     <Page Include="Inbox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
