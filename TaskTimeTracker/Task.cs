@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 using TaskTimeTracker.Client.Contract;
+using TaskTimeTracker.Client.Ui.Commands;
 
 namespace TaskTimeTracker.Client {
   public class Task : INotifyPropertyChanged, ITask {

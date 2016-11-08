@@ -65,8 +65,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Ui\Commands\RelayCommand.cs" />
     <Compile Include="Task.cs" />
-    <Page Include="Ui\ConfigurationWindow\ConfigurationWindow.xaml">
     <Compile Include="TaskValue.cs" />
+    <Page Include="Ui\ConfigurationWindow\ConfigurationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
