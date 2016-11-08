@@ -39,12 +39,18 @@ namespace TaskTimeTracker.Client {
 
     public ICommand AddCommand { get; set; }
     public ICommand RemoveCommand { get; set; }
+    public ICommand ConfigCommand { get; set; }
 
     public MainWindowViewModel(IEnumerable<ITask> tasks) {
       this.Tasks = new ObservableCollection<ITask>(tasks);
       this.AddCommand = new RelayCommand(AddExecute);
       this.RemoveCommand = new RelayCommand(RemoveExecute, o => this.SelectedTask != null);
+      this.ConfigCommand = new RelayCommand(ConfigExecute);
       this.MainWindowVisibility = Visibility.Visible;
+    }
+
+    private void ConfigExecute(object obj) {
+      throw new NotImplementedException();
     }
 
     private void RemoveExecute(object obj) {

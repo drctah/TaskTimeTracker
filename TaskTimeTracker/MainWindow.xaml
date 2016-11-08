@@ -4,26 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskTimeTracker"
-        mc:Ignorable="d" Title="MainWindow" Height="350" Width="525">
-  <Grid>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition/>
-      <ColumnDefinition/>
-    </Grid.ColumnDefinitions>
-    <ListBox Grid.Column="0" ItemsSource="{Binding Tasks}" SelectedItem="{Binding SelectedTask}">
-      <ListBox.ItemTemplate>
-        <DataTemplate DataType="local:Task">
-          <StackPanel Orientation="Horizontal">
-            <TextBlock Text="{Binding CreationTime, StringFormat=HH:mm:ss}"/>
-            <TextBlock Text=" - "/>
-            <TextBlock Text="{Binding Tag}" />
-          </StackPanel>
-        </DataTemplate>
-      </ListBox.ItemTemplate>
-    </ListBox>
-    <StackPanel Grid.Column="1">
-      <Button Content="Add" Command="{Binding AddCommand}"></Button>
-      <Button Content="Remove" Command="{Binding RemoveCommand}"></Button>
-    </StackPanel>
-  </Grid>
+        xmlns:client="clr-namespace:TaskTimeTracker.Client"
+        mc:Ignorable="d" Title="TaskedTimeTracker" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Grid.Column="0" ItemsSource="{Binding Tasks}" SelectedItem="{Binding SelectedTask}">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="client:Task">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding CreationTime, StringFormat=HH:mm:ss}"/>
+                        <TextBlock Text=" - "/>
+                        <TextBlock Text="{Binding Tag}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Button Content="Add" Margin="0,1" Command="{Binding AddCommand}"/>
+            <Button Content="Remove" Margin="0,1" Command="{Binding RemoveCommand}"/>
+            <Button Content="Config" Margin="0,1" Command="{Binding ConfigCommand}"/>
+        </StackPanel>
+    </Grid>
 </Window>

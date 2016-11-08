@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace TaskTimeTracker.Client {
   public class Program : IDisposable {
-    private NotifyIcon _notifyIcon;
+    private readonly NotifyIcon _notifyIcon;
     private Stream _iconStream;
     private bool _closed;
     private MainWindow mainWindow;
@@ -39,7 +39,6 @@ namespace TaskTimeTracker.Client {
       this._notifyIcon.DoubleClick += NotifyIconOnDoubleClick;
 
       this._closed = true;
-
       this._tasks = new List<Task>();
     }
 
