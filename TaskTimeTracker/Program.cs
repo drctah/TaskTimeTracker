@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+using TaskTimeTracker.Client.Ui.ConfigurationWindow;
 using TaskTimeTracker.Client.Ui.MainWindow;
 
 namespace TaskTimeTracker.Client {
@@ -24,7 +25,7 @@ namespace TaskTimeTracker.Client {
       this._iconStream = GetType().Assembly.GetManifestResourceStream("TaskTimeTracker.Client.Clock.ico");
 
       if (this._iconStream == null) { throw new InvalidOperationException(); }
-
+      
       this.Shutdown = false;
 
       this._notifyIcon = new NotifyIcon();

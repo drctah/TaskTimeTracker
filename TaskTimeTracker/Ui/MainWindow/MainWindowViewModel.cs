@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using TaskTimeTracker.Client.Contract;
 using TaskTimeTracker.Client.Ui.Commands;
+using TaskTimeTracker.Client.Ui.ConfigurationWindow;
 using TaskTimeTracker.Client.Ui.Inbox;
 
 namespace TaskTimeTracker.Client.Ui.MainWindow {
@@ -14,6 +15,7 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     private ObservableCollection<ITask> _tasks;
     private ITask _selectedTask;
     private Visibility _mainWindowVisibility;
+    private ConfigurationWindowViewModel _configViewModel;
 
     public ObservableCollection<ITask> Tasks {
       get { return this._tasks; }
@@ -60,10 +62,13 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
       this.RemoveCommand = new RelayCommand(RemoveExecute, o => this.SelectedTask != null);
       this.ConfigCommand = new RelayCommand(ConfigExecute);
       this.MainWindowVisibility = Visibility.Visible;
+      this._configViewModel = new ConfigurationWindowViewModel();
     }
 
     private void ConfigExecute(object obj) {
-      throw new NotImplementedException();
+      ConfigurationWindow.ConfigurationWindow configWindow = new ConfigurationWindow.ConfigurationWindow();
+      configWindow.ViewModel = this._configViewModel;
+      configWindow.ShowDialog();
     }
 
     private void RemoveExecute(object obj) {

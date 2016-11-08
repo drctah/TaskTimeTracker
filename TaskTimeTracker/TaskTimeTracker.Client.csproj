@@ -53,6 +53,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ui\ConfigurationWindow\ConfigurationWindowViewModel.cs" />
+    <Compile Include="Ui\ConfigurationWindow\ConfigurationWindow.xaml.cs">
+      <DependentUpon>ConfigurationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ui\Inbox\Inbox.xaml.cs">
       <DependentUpon>Inbox.xaml</DependentUpon>
     </Compile>
@@ -61,6 +65,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Ui\Commands\RelayCommand.cs" />
     <Compile Include="Task.cs" />
+    <Page Include="Ui\ConfigurationWindow\ConfigurationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ui\Inbox\Inbox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
