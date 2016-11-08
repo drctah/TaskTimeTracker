@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
-using TaskTimeTracker.Client.Ui.ConfigurationWindow;
+
 using TaskTimeTracker.Client.Ui.MainWindow;
 
 namespace TaskTimeTracker.Client {
@@ -15,7 +15,7 @@ namespace TaskTimeTracker.Client {
     private ICollection<Task> _tasks;
 
     [STAThread]
-    static void Main(string[] args) {
+    static void _Main(string[] args) {
       using (Program p = new Program()) {
         p.Run();
       }
@@ -25,7 +25,7 @@ namespace TaskTimeTracker.Client {
       this._iconStream = GetType().Assembly.GetManifestResourceStream("TaskTimeTracker.Client.Clock.ico");
 
       if (this._iconStream == null) { throw new InvalidOperationException(); }
-      
+
       this.Shutdown = false;
 
       this._notifyIcon = new NotifyIcon();
@@ -72,7 +72,7 @@ namespace TaskTimeTracker.Client {
 
     private void OpenWindowRun() {
       this.mainWindow = new Ui.MainWindow.MainWindow();
-      this.mainWindow.DataContext = new MainWindowViewModel(this._tasks);
+      this.mainWindow.DataContext = new MainWindowViewModel();
       this.mainWindow.Closed += MainWindowOnClosed;
       this.mainWindow.ShowDialog();
     }
