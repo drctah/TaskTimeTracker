@@ -6,8 +6,10 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using TaskTimeTracker.Client.Contract;
+using TaskTimeTracker.Client.Ui.Commands;
+using TaskTimeTracker.Client.Ui.Inbox;
 
-namespace TaskTimeTracker.Client {
+namespace TaskTimeTracker.Client.Ui.MainWindow {
   internal class MainWindowViewModel : IMainWindowViewModel {
     private ObservableCollection<ITask> _tasks;
     private ITask _selectedTask;
@@ -37,8 +39,19 @@ namespace TaskTimeTracker.Client {
       }
     }
 
+    /// <summary>
+    /// Adds a TaskStamp
+    /// </summary>
     public ICommand AddCommand { get; set; }
+
+    /// <summary>
+    /// Removes a TaskStamp
+    /// </summary>
     public ICommand RemoveCommand { get; set; }
+
+    /// <summary>
+    /// Command to open the ConfigurationWindow
+    /// </summary>
     public ICommand ConfigCommand { get; set; }
 
     public MainWindowViewModel(IEnumerable<ITask> tasks) {
@@ -58,7 +71,7 @@ namespace TaskTimeTracker.Client {
     }
 
     private void AddExecute(object o) {
-      Inbox inbox = new Inbox();
+      Inbox.Inbox inbox = new Inbox.Inbox();
       InboxViewModel vm = new InboxViewModel(inbox);
       inbox.DataContext = vm;
       bool? b = inbox.ShowDialog();

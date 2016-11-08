@@ -3,8 +3,9 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using TaskTimeTracker.Client.Contract;
+using TaskTimeTracker.Client.Ui.Commands;
 
-namespace TaskTimeTracker.Client {
+namespace TaskTimeTracker.Client.Ui.Inbox {
   public class InboxViewModel : IInboxViewModel {
     private readonly Window _window;
     private string _text;

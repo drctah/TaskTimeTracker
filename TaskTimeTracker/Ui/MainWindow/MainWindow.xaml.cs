@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace TaskTimeTracker.Client {
+namespace TaskTimeTracker.Client.Ui.MainWindow {
   /// <summary>
   /// Interaction logic for MainWindow.xaml
   /// </summary>
