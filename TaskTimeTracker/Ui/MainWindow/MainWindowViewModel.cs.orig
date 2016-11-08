@@ -76,16 +76,25 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     }
 
     private void AddExecute(object o) {
+<<<<<<< HEAD:TaskTimeTracker/MainWindowViewModel.cs
+      //Inbox inbox = new Inbox();
+      //InboxViewModel vm = new InboxViewModel(inbox);
+      //inbox.DataContext = vm;
+      //bool? b = inbox.ShowDialog();
+=======
       Inbox.Inbox inbox = new Inbox.Inbox();
       InboxViewModel vm = new InboxViewModel(inbox);
       inbox.DataContext = vm;
       bool? b = inbox.ShowDialog();
+>>>>>>> master:TaskTimeTracker/Ui/MainWindow/MainWindowViewModel.cs
 
-      if (!b.HasValue || !b.Value) { return; }
+      //if (!b.HasValue || !b.Value) { return; }
 
-      string text = vm.Text;
+      //string text = vm.Text;
+      string text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr";
 
       DateTime dateTime = DateTime.Now;
+      //DateTime dateTime = new DateTime(2016, 11, 10, 1, 1, 1);
       this.Tasks.Add(new Task(dateTime, text));
     }
 

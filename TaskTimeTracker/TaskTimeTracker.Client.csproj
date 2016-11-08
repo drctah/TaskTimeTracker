@@ -65,6 +65,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Ui\Commands\RelayCommand.cs" />
     <Compile Include="Task.cs" />
+    <Compile Include="TaskValue.cs" />
     <Page Include="Ui\ConfigurationWindow\ConfigurationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -98,15 +99,13 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Clock.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\TaskTimeTracker.Client.Contract\TaskTimeTracker.Client.Contract.csproj">
       <Project>{A0E93E9B-8D9B-4F7D-944E-F8230F3D4BCF}</Project>
       <Name>TaskTimeTracker.Client.Contract</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+     <EmbeddedResource Include="Clock.ico" />
     <Resource Include="Changelog.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
