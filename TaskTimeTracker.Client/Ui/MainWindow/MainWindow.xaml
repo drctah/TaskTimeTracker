@@ -23,9 +23,9 @@
       <Button Margin="0,1"
               Command="{Binding AddCommand}"
               Content="Add" />
-      <Button Margin="0,1"
+      <!--<Button Margin="0,1"
               Command="{Binding RemoveCommand}"
-              Content="Remove" />
+              Content="Remove" />-->
       <Button Margin="0,1"
               Command="{Binding ConfigCommand}"
               Content="Config" />

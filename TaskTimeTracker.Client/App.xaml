@@ -5,6 +5,7 @@
              xmlns:contract="clr-namespace:TaskTimeTracker.Client.Contract;assembly=TaskTimeTracker.Client.Contract"
              StartupUri="Ui/MainWindow/MainWindow.xaml">
   <Application.Resources>
+
     <Style x:Key="MinimalizedButton" TargetType="Button">
       <Setter Property="Background" Value="White" />
       <Setter Property="Template">
@@ -31,6 +32,7 @@
         </Trigger>
       </Style.Triggers>
     </Style>
+
     <DataTemplate x:Key="TaskDataTemplate" DataType="client:Task">
       <Border Background="Transparent">
         <Grid>
@@ -67,6 +69,8 @@
                   VerticalAlignment="Top"
                   Background="Transparent"
                   BorderBrush="Transparent"
+                  Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                  CommandParameter="{Binding}"
                   Content="x"
                   Style="{StaticResource MinimalizedButton}" />
           <Button Grid.Row="1"
@@ -80,7 +84,8 @@
         </Grid>
       </Border>
     </DataTemplate>
-    <DataTemplate x:Key="EditTaskDataTemplate" DataType="contract:ITask">
+
+    <DataTemplate x:Key="EditTaskDataTemplate" DataType="client:Task">
       <Grid>
         <Grid.RowDefinitions>
           <RowDefinition />
@@ -150,6 +155,7 @@
         </Grid>
       </Grid>
     </DataTemplate>
+
     <Style x:Key="EditTaskDataStyle" TargetType="ListBoxItem">
       <Setter Property="ContentTemplate" Value="{StaticResource TaskDataTemplate}" />
       <Style.Triggers>

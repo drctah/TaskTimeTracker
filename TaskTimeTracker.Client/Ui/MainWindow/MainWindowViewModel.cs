@@ -25,14 +25,6 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
       }
     }
 
-    public ITask SelectedTask {
-      get { return this._selectedTask; }
-      set {
-        this._selectedTask = value;
-        OnPropertyChanged();
-      }
-    }
-
     public Visibility MainWindowVisibility {
       get { return this._mainWindowVisibility; }
       set {
@@ -59,7 +51,7 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     public MainWindowViewModel() {
       this.Tasks = new ObservableCollection<ITask>();
       this.AddCommand = new RelayCommand(AddExecute);
-      this.RemoveCommand = new RelayCommand(RemoveExecute, o => this.SelectedTask != null);
+      this.RemoveCommand = new RelayCommand(RemoveExecute);
       this.ConfigCommand = new RelayCommand(ConfigExecute);
       this.MainWindowVisibility = Visibility.Visible;
       this._configViewModel = new ConfigurationWindowViewModel();
@@ -72,7 +64,11 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     }
 
     private void RemoveExecute(object obj) {
-      this.Tasks.Remove(this.SelectedTask);
+      if (MessageBox.Show("Sure wanna delete?", "check", MessageBoxButton.YesNo, MessageBoxImage.Asterisk, MessageBoxResult.No) != MessageBoxResult.Yes) {
+        return;
+      }
+
+      this.Tasks.Remove(obj as ITask);
     }
 
     private void AddExecute(object o) {

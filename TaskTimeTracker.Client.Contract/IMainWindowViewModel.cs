@@ -10,10 +10,10 @@ namespace TaskTimeTracker.Client.Contract {
     /// </summary>
     ObservableCollection<ITask> Tasks { get; set; }
 
-    /// <summary>
-    /// The selected Task
-    /// </summary>
-    ITask SelectedTask { get; set; }
+    ///// <summary>
+    ///// The selected Task
+    ///// </summary>
+    //ITask SelectedTask { get; set; }
 
     /// <summary>
     /// Visibility of the MainWindow
