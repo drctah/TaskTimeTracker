@@ -1,14 +1,10 @@
-﻿<Window x:Class="TaskTimeTracker.Client.Ui.MainWindow.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:client="clr-namespace:TaskTimeTracker.Client"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="TaskedTimeTracker"
-        Width="525"
-        Height="350"
-        mc:Ignorable="d">
-  <Window.Resources>
+﻿<Application x:Class="TaskTimeTracker.Client.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:client="clr-namespace:TaskTimeTracker.Client"
+             xmlns:contract="clr-namespace:TaskTimeTracker.Client.Contract;assembly=TaskTimeTracker.Client.Contract"
+             StartupUri="Ui/MainWindow/MainWindow.xaml">
+  <Application.Resources>
     <Style x:Key="MinimalizedButton" TargetType="Button">
       <Setter Property="Background" Value="White" />
       <Setter Property="Template">
@@ -84,7 +80,7 @@
         </Grid>
       </Border>
     </DataTemplate>
-    <DataTemplate x:Key="EditTaskDataTemplate" DataType="client:Task">
+    <DataTemplate x:Key="EditTaskDataTemplate" DataType="contract:ITask">
       <Grid>
         <Grid.RowDefinitions>
           <RowDefinition />
@@ -164,28 +160,5 @@
         </DataTrigger>
       </Style.Triggers>
     </Style>
-  </Window.Resources>
-  <Grid>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="4*" />
-      <ColumnDefinition Width="*" />
-    </Grid.ColumnDefinitions>
-    <ListBox Grid.Column="0"
-             HorizontalContentAlignment="Stretch"
-             ItemContainerStyle="{StaticResource EditTaskDataStyle}"
-             ItemsSource="{Binding Tasks}"
-             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-             SelectedItem="{Binding SelectedTask}" />
-    <StackPanel Grid.Column="1">
-      <Button Margin="0,1"
-              Command="{Binding AddCommand}"
-              Content="Add" />
-      <Button Margin="0,1"
-              Command="{Binding RemoveCommand}"
-              Content="Remove" />
-      <Button Margin="0,1"
-              Command="{Binding ConfigCommand}"
-              Content="Config" />
-    </StackPanel>
-  </Grid>
-</Window>
+  </Application.Resources>
+</Application>

@@ -56,8 +56,8 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     /// </summary>
     public ICommand ConfigCommand { get; set; }
 
-    public MainWindowViewModel(IEnumerable<ITask> tasks) {
-      this.Tasks = new ObservableCollection<ITask>(tasks);
+    public MainWindowViewModel() {
+      this.Tasks = new ObservableCollection<ITask>();
       this.AddCommand = new RelayCommand(AddExecute);
       this.RemoveCommand = new RelayCommand(RemoveExecute, o => this.SelectedTask != null);
       this.ConfigCommand = new RelayCommand(ConfigExecute);
