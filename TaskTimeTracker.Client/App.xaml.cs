@@ -35,6 +35,7 @@ namespace TaskTimeTracker.Client {
     }
 
     private void Close(object sender, EventArgs e) {
+      this._notifyIcon.Visible = false;
       Environment.Exit(0);
     }
   }
