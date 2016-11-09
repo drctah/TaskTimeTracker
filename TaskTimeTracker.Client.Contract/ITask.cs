@@ -4,7 +4,7 @@ namespace TaskTimeTracker.Client.Contract {
   /// <summary>
   /// Interface for Tasks
   /// </summary>
-  public interface ITask {
+  public interface ITask : IEquatable<ITask>, IComparable<ITask>, IComparable, ICloneable {
     /// <summary>
     /// Date of Creation
     /// </summary>

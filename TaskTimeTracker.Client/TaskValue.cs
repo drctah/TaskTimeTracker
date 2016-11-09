@@ -1,13 +1,14 @@
-﻿using TaskTimeTracker.Client.Contract;
+﻿//using System;
 
-namespace TaskTimeTracker.Client {
-  class TaskValue : ITask {
-    public EditableDateTime CreationTime { get; set; }
-    public string Tag { get; set; }
+//using TaskTimeTracker.Client.Contract;
 
-    public TaskValue(Task task) {
-      this.Tag = task.Tag;
-      this.CreationTime = new EditableDateTime(task.CreationTime);
-    }
-  }
-}
+//namespace TaskTimeTracker.Client
+//{
+//  class TaskValue : Data.Task
+//  {
+//    public TaskValue(ITask task)
+//      : base(task)
+//    {
+//    }
+//  }
+//}

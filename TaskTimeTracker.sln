@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Configurati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Configuration.Contract", "TaskTimeTracker.Configuration.Contract\TaskTimeTracker.Configuration.Contract.csproj", "{62A98091-1855-4A6A-B0C5-925111449B74}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Client.Data", "TaskTimeTracker.Client.Data\TaskTimeTracker.Client.Data.csproj", "{6EF99611-4E67-41C9-8486-B24A3877D586}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{B6D5111F-E6EC-4A93-B6E7-2D731BEB1AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6D5111F-E6EC-4A93-B6E7-2D731BEB1AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6D5111F-E6EC-4A93-B6E7-2D731BEB1AC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EF99611-4E67-41C9-8486-B24A3877D586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EF99611-4E67-41C9-8486-B24A3877D586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EF99611-4E67-41C9-8486-B24A3877D586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EF99611-4E67-41C9-8486-B24A3877D586}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E605D3E6-95E3-4DD6-98D8-5CDD03C33AF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E605D3E6-95E3-4DD6-98D8-5CDD03C33AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E605D3E6-95E3-4DD6-98D8-5CDD03C33AF4}.Release|Any CPU.ActiveCfg = Release|Any CPU

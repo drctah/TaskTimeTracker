@@ -133,7 +133,6 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
       this.Tasks.Add(newTask);
     }
 
-
     public event PropertyChangedEventHandler PropertyChanged;
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {

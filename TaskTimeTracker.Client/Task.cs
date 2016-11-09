@@ -9,10 +9,10 @@ using TaskTimeTracker.Client.Ui.Commands;
 
 namespace TaskTimeTracker.Client {
   public class Task : INotifyPropertyChanged, ITask {
-    private EditableDateTime _creationTime;
-    private string _tag;
-    private TaskValue _valueBackup;
+    private Data.Task _valueBackup;
+    private Data.Task _value;
     private bool _editMode;
+
     public ICommand EditCommand { get; set; }
 
     public ICommand SaveCommand { get; set; }
@@ -30,24 +30,23 @@ namespace TaskTimeTracker.Client {
     }
 
     public EditableDateTime CreationTime {
-      get { return this._creationTime; }
+      get { return this._value.CreationTime; }
       set {
-        this._creationTime = value;
+        this._value.CreationTime = value;
         OnPropertyChanged();
       }
     }
 
     public string Tag {
-      get { return this._tag; }
+      get { return this._value.Tag; }
       set {
-        this._tag = value;
+        this._value.Tag = value;
         OnPropertyChanged();
       }
     }
 
     public Task(DateTime now, string text) {
-      this.CreationTime = now;
-      this.Tag = text;
+      this._value = new Data.Task(now, text);
       this.EditCommand = new RelayCommand(EditCommandExecute);
       this.AbortCommand = new RelayCommand(AbortCommandExecute);
       this.SaveCommand = new RelayCommand(SaveCommandExecute);
@@ -73,14 +72,33 @@ namespace TaskTimeTracker.Client {
     }
 
     public void EnterEditMode() {
-      this._valueBackup = new TaskValue(this);
+      this._valueBackup = new Data.Task(this._value);
       this.EditMode = true;
     }
-
     public event PropertyChangedEventHandler PropertyChanged;
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {
       this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    public bool Equals(ITask other)
+    {
+      return this._value.Equals(other);
+    }
+
+    public int CompareTo(ITask other)
+    {
+      return this._value.CompareTo(other);
+    }
+
+    public int CompareTo(object obj)
+    {
+      return this._value.CompareTo(obj);
+    }
+
+    public object Clone()
+    {
+      return this._value.Clone();
     }
   }
 }
