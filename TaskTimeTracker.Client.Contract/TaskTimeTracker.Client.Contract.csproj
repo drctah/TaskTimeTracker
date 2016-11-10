@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="EditableDateTime.cs" />
     <Compile Include="IInboxViewModel.cs" />
-    <Compile Include="IMainWindowViewModel.cs" />
     <Compile Include="ITask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

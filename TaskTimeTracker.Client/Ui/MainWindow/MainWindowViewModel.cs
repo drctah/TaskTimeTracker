@@ -11,12 +11,14 @@ using TaskTimeTracker.Client.Ui.ConfigurationWindow;
 using TaskTimeTracker.Client.Ui.Inbox;
 
 namespace TaskTimeTracker.Client.Ui.MainWindow {
-  internal class MainWindowViewModel : IMainWindowViewModel {
-    private ObservableCollection<ITask> _tasks;
+  internal class MainWindowViewModel {
+    private ObservableCollection<Task> _tasks;
     private Visibility _mainWindowVisibility;
     private ConfigurationWindowViewModel _configViewModel;
 
-    public ObservableCollection<ITask> Tasks {
+    public Task SelectedTask { get; set; }
+
+    public ObservableCollection<Task> Tasks {
       get { return this._tasks; }
       set {
         this._tasks = value;
@@ -47,13 +49,24 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     /// </summary>
     public ICommand ConfigCommand { get; set; }
 
+    public ICommand MouseDoubleClick { get; set; }
+
     public MainWindowViewModel() {
-      this.Tasks = new ObservableCollection<ITask>();
+      this.Tasks = new ObservableCollection<Task>();
       this.AddCommand = new RelayCommand(AddExecute);
       this.RemoveCommand = new RelayCommand(RemoveExecute);
       this.ConfigCommand = new RelayCommand(ConfigExecute);
+      this.MouseDoubleClick = new RelayCommand(this.MouseDoubleClickExecute);
       this.MainWindowVisibility = Visibility.Visible;
       this._configViewModel = new ConfigurationWindowViewModel();
+    }
+
+    private void MouseDoubleClickExecute(object o) {
+      if (this.SelectedTask == null || this.SelectedTask.EditMode) {
+        return;
+      }
+
+      this.SelectedTask.EnterEditMode();
     }
 
     private void ConfigExecute(object obj) {
@@ -67,7 +80,7 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
         return;
       }
 
-      this.Tasks.Remove(obj as ITask);
+      this.Tasks.Remove(obj as Task);
     }
 
     private void AddExecute(object o) {

@@ -61,10 +61,13 @@ namespace TaskTimeTracker.Client {
     }
 
     private void EditCommandExecute(object o) {
-      this.EditMode = true;
-      this._valueBackup = new TaskValue(this);
+      this.EnterEditMode();
     }
 
+    public void EnterEditMode() {
+      this._valueBackup = new TaskValue(this);
+      this.EditMode = true;
+    }
 
     public event PropertyChangedEventHandler PropertyChanged;
 

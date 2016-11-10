@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
+
 using Application = System.Windows.Application;
 
 namespace TaskTimeTracker.Client {
