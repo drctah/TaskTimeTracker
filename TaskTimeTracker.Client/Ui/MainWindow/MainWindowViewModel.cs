@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
+
 using TaskTimeTracker.Client.Contract;
 using TaskTimeTracker.Client.Ui.Commands;
 using TaskTimeTracker.Client.Ui.ConfigurationWindow;
@@ -13,7 +13,6 @@ using TaskTimeTracker.Client.Ui.Inbox;
 namespace TaskTimeTracker.Client.Ui.MainWindow {
   internal class MainWindowViewModel : IMainWindowViewModel {
     private ObservableCollection<ITask> _tasks;
-    private ITask _selectedTask;
     private Visibility _mainWindowVisibility;
     private ConfigurationWindowViewModel _configViewModel;
 
@@ -21,14 +20,6 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
       get { return this._tasks; }
       set {
         this._tasks = value;
-        OnPropertyChanged();
-      }
-    }
-
-    public ITask SelectedTask {
-      get { return this._selectedTask; }
-      set {
-        this._selectedTask = value;
         OnPropertyChanged();
       }
     }
@@ -59,7 +50,7 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     public MainWindowViewModel() {
       this.Tasks = new ObservableCollection<ITask>();
       this.AddCommand = new RelayCommand(AddExecute);
-      this.RemoveCommand = new RelayCommand(RemoveExecute, o => this.SelectedTask != null);
+      this.RemoveCommand = new RelayCommand(RemoveExecute);
       this.ConfigCommand = new RelayCommand(ConfigExecute);
       this.MainWindowVisibility = Visibility.Visible;
       this._configViewModel = new ConfigurationWindowViewModel();
@@ -72,7 +63,11 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     }
 
     private void RemoveExecute(object obj) {
-      this.Tasks.Remove(this.SelectedTask);
+      if (MessageBox.Show("Sure wanna delete?", "check", MessageBoxButton.YesNo, MessageBoxImage.Asterisk, MessageBoxResult.No) != MessageBoxResult.Yes) {
+        return;
+      }
+
+      this.Tasks.Remove(obj as ITask);
     }
 
     private void AddExecute(object o) {
