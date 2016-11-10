@@ -10,10 +10,10 @@ using System.Windows;
 [assembly: AssemblyTitle("TaskTimeTracker.Client")]
 [assembly: AssemblyDescription("Tool to set timeStamps")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Wr4thon & Nerzal")]
+[assembly: AssemblyCompany("Wr4thon, Nerzal, evo")]
 [assembly: AssemblyProduct("TaskTimeTracker.Client")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
-[assembly: AssemblyTrademark("Wr4thon & Nerzal")]
+[assembly: AssemblyTrademark("Wr4thon, Nerzal, evo")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
