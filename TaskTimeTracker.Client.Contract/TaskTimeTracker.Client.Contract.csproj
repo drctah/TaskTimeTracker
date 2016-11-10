@@ -31,17 +31,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EditableDateTime.cs" />
+    <Compile Include="Configuration\IConfiguration.cs" />
+    <Compile Include="Configuration\IConfigurationController.cs" />
+    <Compile Include="Configuration\IConfigurationDataTransferObject.cs" />
+    <Compile Include="Configuration\IConfigurationViewModelController.cs" />
+    <Compile Include="Configuration\IConfigurationWindowViewModel.cs" />
+    <Compile Include="Configuration\IConfigurationXmlSerializer.cs" />
+    <Compile Include="IDataTransferObject.cs" />
     <Compile Include="IInboxViewModel.cs" />
     <Compile Include="IMainWindowViewModel.cs" />
     <Compile Include="ITask.cs" />

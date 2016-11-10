@@ -1,6 +1,6 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
+using TaskTimeTracker.Client.Contract.Configuration;
 
 namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
   /// <summary>
@@ -8,17 +8,15 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
   /// </summary>
   public partial class ConfigurationWindow : Window {
 
-    public ConfigurationWindowViewModel ViewModel { get; set; }
+    public IConfigurationWindowViewModel ViewModel { get; set; }
+    public IConfigurationController ConfigurationController { get; set; }
 
     public ConfigurationWindow() {
       InitializeComponent();
     }
 
     private void OnShortCutInput(object sender, KeyEventArgs e) {
-      TextBox senderTextBox = (TextBox)sender;
-      string senderName = senderTextBox.Name;
-
-      this.ViewModel.SetKey(senderName, e.Key);
+      this.ViewModel.Controller.SetKey(e.Key, this.ViewModel);
       e.Handled = true;
     }
 

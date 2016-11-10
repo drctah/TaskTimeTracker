@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using TaskTimeTracker.Client.Contract;
+using TaskTimeTracker.Client.Contract.Configuration;
 using TaskTimeTracker.Client.Ui.Commands;
 using TaskTimeTracker.Client.Ui.ConfigurationWindow;
 using TaskTimeTracker.Client.Ui.Inbox;
@@ -15,7 +15,8 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     private ObservableCollection<ITask> _tasks;
     private ITask _selectedTask;
     private Visibility _mainWindowVisibility;
-    private ConfigurationWindowViewModel _configViewModel;
+    private IConfigurationWindowViewModel _configViewModel;
+    private IConfigurationController _configurationController;
 
     public ObservableCollection<ITask> Tasks {
       get { return this._tasks; }
@@ -56,19 +57,31 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     /// </summary>
     public ICommand ConfigCommand { get; set; }
 
-    public MainWindowViewModel() {
+    /// <summary>
+    /// Dem Configuration
+    /// </summary>
+    public IConfiguration Configuration { get; set; }
+
+    public MainWindowViewModel(IConfigurationController configurationController) {
       this.Tasks = new ObservableCollection<ITask>();
       this.AddCommand = new RelayCommand(AddExecute);
       this.RemoveCommand = new RelayCommand(RemoveExecute, o => this.SelectedTask != null);
       this.ConfigCommand = new RelayCommand(ConfigExecute);
       this.MainWindowVisibility = Visibility.Visible;
-      this._configViewModel = new ConfigurationWindowViewModel();
+      this._configurationController = configurationController;
+      this.Configuration = this._configurationController.Configuration;
     }
 
     private void ConfigExecute(object obj) {
       ConfigurationWindow.ConfigurationWindow configWindow = new ConfigurationWindow.ConfigurationWindow();
+      configWindow.ConfigurationController = this._configurationController;
+      ConfigurationViewModelController configurationViewModelController = new ConfigurationViewModelController(configWindow);
+      this._configViewModel = configurationViewModelController.FromConfiguration(this.Configuration);
       configWindow.ViewModel = this._configViewModel;
       configWindow.ShowDialog();
+      if (this.Configuration.CompareTo(this._configurationController.Configuration) != 0) {
+        this._configurationController.Save();
+      }
     }
 
     private void RemoveExecute(object obj) {

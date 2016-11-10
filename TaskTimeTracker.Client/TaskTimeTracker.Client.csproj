@@ -64,13 +64,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Configuration.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskValue.cs" />
     <Compile Include="Ui\Commands\RelayCommand.cs" />
+    <Compile Include="Ui\ConfigurationWindow\ConfigurationController.cs" />
+    <Compile Include="Ui\ConfigurationWindow\ConfigurationViewModelController.cs" />
     <Compile Include="Ui\ConfigurationWindow\ConfigurationWindow.xaml.cs">
       <DependentUpon>ConfigurationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\ConfigurationWindow\ConfigurationWindowViewModel.cs" />
+    <Compile Include="Ui\ConfigurationWindow\ConfigurationXmlSerializer.cs" />
     <Compile Include="Ui\Inbox\Inbox.xaml.cs">
       <DependentUpon>Inbox.xaml</DependentUpon>
     </Compile>
