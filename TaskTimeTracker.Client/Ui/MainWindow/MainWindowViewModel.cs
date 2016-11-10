@@ -5,7 +5,6 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 
-using TaskTimeTracker.Client.Contract;
 using TaskTimeTracker.Client.Contract.Configuration;
 using TaskTimeTracker.Client.Ui.Commands;
 using TaskTimeTracker.Client.Ui.ConfigurationWindow;
