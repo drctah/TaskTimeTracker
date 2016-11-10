@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
+
 using TaskTimeTracker.Client.Contract;
 using TaskTimeTracker.Client.Ui.Commands;
 using TaskTimeTracker.Client.Ui.ConfigurationWindow;
@@ -13,7 +13,6 @@ using TaskTimeTracker.Client.Ui.Inbox;
 namespace TaskTimeTracker.Client.Ui.MainWindow {
   internal class MainWindowViewModel : IMainWindowViewModel {
     private ObservableCollection<ITask> _tasks;
-    private ITask _selectedTask;
     private Visibility _mainWindowVisibility;
     private ConfigurationWindowViewModel _configViewModel;
 
