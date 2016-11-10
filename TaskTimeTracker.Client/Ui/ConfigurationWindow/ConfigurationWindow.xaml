@@ -12,7 +12,7 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="80"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -20,10 +20,33 @@
 
         <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">ShortCut</Label>
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="180" Grid.Column="1" Grid.Row="0">
-            <TextBox Margin="0,1,0,0" Text="{Binding KeyOneString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="KeyOneBox" KeyDown="OnShortCutInput"/>
-            <TextBox Margin="0,1,0,0" Text="{Binding KeyTwoString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="KeyTwoBox" KeyDown="OnShortCutInput"/>
-            <TextBox Margin="0,1,0,0" Text="{Binding KeyThreeString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="KeyThreeBox" KeyDown="OnShortCutInput"/> 
-        </StackPanel>
+
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <CheckBox Grid.Row="1" VerticalAlignment="Center" IsChecked="{Binding ControlIsChecked}">Ctrl</CheckBox>
+            <CheckBox Grid.Row="2" VerticalAlignment="Center" IsChecked="{Binding AltIsChecked}">Alt</CheckBox>
+            <CheckBox Grid.Row="3" VerticalAlignment="Center" IsChecked="{Binding WindowsIsChecked}">Windows</CheckBox>
+
+            <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+                <Label>Key</Label>
+                <TextBox Margin="10,1,0,0" Width="50" HorizontalAlignment="Right" Text="{Binding KeyOneString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyDown="OnShortCutInput"/>
+            </StackPanel>
+        </Grid>
+
+
+        <DockPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Width="130">
+            <Button Height="35" Width="50" DockPanel.Dock="Right" Command="{Binding CancelCommand}">Cancel</Button>
+            <Button Height="35" Width="50" DockPanel.Dock="Right" Command="{Binding OkCommand}">Ok</Button>
+        </DockPanel>
     </Grid>
 </Window>
