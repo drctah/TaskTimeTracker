@@ -2,17 +2,20 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using TaskTimeTracker.Client.Contract.Configuration;
+using TaskTimeTracker.Client.Ui.Commands;
 
 namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
-  public class ConfigurationWindowViewModel : INotifyPropertyChanged {
+  public class ConfigurationWindowViewModel : IConfigurationWindowViewModel {
     private string _keyOneString;
-    private string _keyTwoString;
-    private string _keyThreeString;
     private Key _keyOne;
-    private Key _keyTwo;
-    private Key _keyThree;
+    private bool _controlIsChecked;
+    private bool _altIsChecked;
+    private bool _windowsIsChecked;
 
     public event PropertyChangedEventHandler PropertyChanged;
+
+    public IConfigurationViewModelController Controller { get; set; }
 
     public string KeyOneString {
       get { return this._keyOneString; }
@@ -30,49 +33,39 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
       }
     }
 
-    public string KeyTwoString {
-      get { return this._keyTwoString; }
+    public bool ControlIsChecked {
+      get { return this._controlIsChecked; }
       set {
-        this._keyTwoString = value;
-        OnPropertyChanged(nameof(this.KeyTwoString));
+        this._controlIsChecked = value;
+        OnPropertyChanged(nameof(this.ControlIsChecked));
       }
     }
 
-    public Key KeyTwo {
-      get { return this._keyTwo; }
+    public bool AltIsChecked {
+      get { return this._altIsChecked; }
       set {
-        this._keyTwo = value;
-        OnPropertyChanged(nameof(this.KeyTwo));
+        this._altIsChecked = value;
+        OnPropertyChanged(nameof(this.AltIsChecked));
       }
     }
 
-    public string KeyThreeString {
-      get { return this._keyThreeString; }
+    public bool WindowsIsChecked {
+      get { return this._windowsIsChecked; }
       set {
-        this._keyThreeString = value;
-        OnPropertyChanged(nameof(this.KeyThreeString));
+        this._windowsIsChecked = value;
+        OnPropertyChanged(nameof(this.WindowsIsChecked));
       }
     }
 
-    public Key KeyThree {
-      get { return this._keyThree; }
-      set {
-        this._keyThree = value;
-        OnPropertyChanged(nameof(this.KeyThree));
-      }
-    }
+    public ICommand CancelCommand { get; }
 
-    public void SetKey(string senderName, Key key) {
-      if (String.Compare(senderName, "KeyOneBox", StringComparison.Ordinal) == 0) {
-        this.KeyOne = key;
-        this.KeyOneString = key.ToString();
-      }else if (String.Compare(senderName, "KeyTwoBox", StringComparison.Ordinal) == 0) {
-        this.KeyTwo = key;
-        this.KeyTwoString = key.ToString();
-      } else if (String.Compare(senderName, "KeyThreeBox", StringComparison.Ordinal) == 0) {
-        this.KeyThree = key;
-        this.KeyThreeString = key.ToString();
-      }
+    public ICommand OkCommand { get; }
+
+
+    public ConfigurationWindowViewModel(IConfigurationViewModelController controller) {
+      this.Controller = controller;
+      this.CancelCommand = new RelayCommand(controller.ExecuteCancel);
+      this.OkCommand = new RelayCommand(controller.ExecuteOk);
     }
     
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {
