@@ -18,12 +18,13 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
       if (!Directory.Exists(this._configPath)) {
         Directory.CreateDirectory(this._configPath);
       }
-      this._configPath += "TaskTimeTracker.conf";
+      this._configPath += @"\TaskTimeTracker.conf";
     }
 
     public void Save() {
       using (FileStream fileStream = new FileStream(this._configPath, FileMode.OpenOrCreate)) {
         using (XmlTextWriter writer = new XmlTextWriter(fileStream, Encoding.UTF8)) {
+          writer.Formatting = Formatting.Indented;
           this.Serializer.Serialize(writer, this.Configuration);
         }
       }
@@ -34,8 +35,10 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
 
       if (File.Exists(this._configPath)) {
         using (FileStream fileStream = new FileStream(this._configPath, FileMode.Open)) {
-          using (XmlReader reader = new XmlTextReader(fileStream)) {
-            this.Serializer.Deserialize(reader);
+          XmlReaderSettings xmlReaderSettings = new XmlReaderSettings();
+          xmlReaderSettings.IgnoreWhitespace = true;
+          using (XmlReader reader = XmlReader.Create(new XmlTextReader(fileStream), xmlReaderSettings)) {
+            result = this.Serializer.Deserialize(reader);
           }
         }
       } else {

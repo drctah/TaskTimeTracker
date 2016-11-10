@@ -8,12 +8,12 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("TaskTimeTracker.Client")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Tool to set timeStamps")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Wr4thon & Nerzal")]
 [assembly: AssemblyProduct("TaskTimeTracker.Client")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("Wr4thon & Nerzal")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
