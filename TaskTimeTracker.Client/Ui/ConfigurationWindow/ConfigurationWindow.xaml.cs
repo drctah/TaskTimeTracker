@@ -12,14 +12,18 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
 
     public ConfigurationWindow() {
       InitializeComponent();
-      this.DataContext = this.ViewModel;
     }
 
     private void OnShortCutInput(object sender, KeyEventArgs e) {
-      TextBox senderTextBox = (TextBox) sender;
+      TextBox senderTextBox = (TextBox)sender;
       string senderName = senderTextBox.Name;
 
       this.ViewModel.SetKey(senderName, e.Key);
+      e.Handled = true;
+    }
+
+    private void ConfigurationWindow_OnLoaded(object sender, RoutedEventArgs e) {
+      this.DataContext = this.ViewModel;
     }
   }
 }

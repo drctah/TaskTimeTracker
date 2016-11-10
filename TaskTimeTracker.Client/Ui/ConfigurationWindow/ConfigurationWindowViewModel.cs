@@ -66,7 +66,7 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
       if (String.Compare(senderName, "KeyOneBox", StringComparison.Ordinal) == 0) {
         this.KeyOne = key;
         this.KeyOneString = key.ToString();
-      }else if (String.Compare(senderName, "KeyTwoBox", StringComparison.Ordinal) == 0) {
+      } else if (String.Compare(senderName, "KeyTwoBox", StringComparison.Ordinal) == 0) {
         this.KeyTwo = key;
         this.KeyTwoString = key.ToString();
       } else if (String.Compare(senderName, "KeyThreeBox", StringComparison.Ordinal) == 0) {
@@ -74,7 +74,7 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
         this.KeyThreeString = key.ToString();
       }
     }
-    
+
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {
       this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
