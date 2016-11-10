@@ -54,7 +54,7 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     /// <summary>
     /// Dem Configuration
     /// </summary>
-
+    public IConfiguration Configuration { get; set; }
 
     public MainWindowViewModel(IConfigurationController configurationController) {
       this.Tasks = new ObservableCollection<Task>();
