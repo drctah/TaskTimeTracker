@@ -19,15 +19,5 @@ namespace TaskTimeTracker.Client.Ui.Inbox {
     private void Inbox_OnLoaded(object sender, RoutedEventArgs e) {
       this.TextBox.Focus();
     }
-
-
-    private void OnKeyUp(object sender, KeyEventArgs e) {
-      if (e.Key == Key.Enter) {
-        this.DialogResult = true;
-        Close();
-      } else if (e.Key == Key.Escape) {
-        Close();
-      }
-    }
   }
 }

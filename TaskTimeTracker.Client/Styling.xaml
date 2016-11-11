@@ -30,6 +30,7 @@
             <TextBlock Text=" - " />
           </StackPanel>
           <TextBlock Grid.Column="1"
+                     VerticalAlignment="Center"
                      Text="{Binding Tag}"
                      TextWrapping="WrapWithOverflow" />
         </Grid>

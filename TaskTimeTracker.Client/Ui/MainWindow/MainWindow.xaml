@@ -12,29 +12,39 @@
                       mc:Ignorable="d">
   <Grid>
     <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="4*" />
       <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="100" />
     </Grid.ColumnDefinitions>
-    <ListBox Grid.Column="0"
-             HorizontalContentAlignment="Stretch"
-             ItemContainerStyle="{StaticResource EditTaskDataStyle}"
-             ItemsSource="{Binding Tasks}"
-             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-             SelectedItem="{Binding SelectedTask}">
-      <i:Interaction.Triggers>
-        <i:EventTrigger EventName="MouseDoubleClick">
-          <i:InvokeCommandAction Command="{Binding MouseDoubleClick}" />
-        </i:EventTrigger>
-      </i:Interaction.Triggers>
-    </ListBox>
-    <StackPanel Grid.Column="1">
-      <Button Margin="0,1"
-              Command="{Binding AddCommand}"
-              Content="Add" />
-      <Button Margin="0,1"
-              Command="{Binding ConfigCommand}"
-              Content="Config" />
-    </StackPanel>
+    <Border Grid.Column="0"
+            BorderBrush="{StaticResource HighlightBrush}"
+            BorderThickness="2 0 1 2">
+      <ListBox HorizontalContentAlignment="Stretch"
+               Background="{StaticResource GrayBrush10}"
+               ItemContainerStyle="{StaticResource EditTaskDataStyle}"
+               ItemsSource="{Binding Tasks}"
+               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+               SelectedItem="{Binding SelectedTask}">
+        <i:Interaction.Triggers>
+          <i:EventTrigger EventName="MouseDoubleClick">
+            <i:InvokeCommandAction Command="{Binding MouseDoubleClick}" />
+          </i:EventTrigger>
+        </i:Interaction.Triggers>
+      </ListBox>
+    </Border>
+    <Border Grid.Column="1"
+            BorderBrush="{StaticResource HighlightBrush}"
+            BorderThickness="1 0 2 2">
+      <StackPanel Margin="5">
+        <Button Margin="0,2.5"
+                Command="{Binding AddCommand}"
+                Content="Add" />
+        <Button Margin="0,2.5"
+                Command="{Binding ConfigCommand}"
+                Content="Config" />
+      </StackPanel>
+    </Border>
   </Grid>
 </controls:MetroWindow>
+
+
 
