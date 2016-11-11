@@ -14,7 +14,11 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
 
     public ConfigurationWindow(Window owner) {
       InitializeComponent();
-      this.Owner = owner;
+
+      if (owner != null) {
+        this.Owner = owner;
+        this.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+      }
     }
 
     private void OnShortCutInput(object sender, KeyEventArgs e) {
