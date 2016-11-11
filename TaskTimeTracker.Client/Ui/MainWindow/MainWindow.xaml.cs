@@ -16,7 +16,6 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     private MainWindowViewModel _viewModel;
 
     public MainWindow() {
-      SetLanguageDictionary();
       InitializeComponent();
       IConfigurationController controller = new ConfigurationController(new ConfigurationXmlSerializer<ITaskTimeTrackerConfiguration>());
       controller.Load();
@@ -31,19 +30,6 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
 
     private void MainWindow_OnLoaded(object sender, RoutedEventArgs e) {
       this._viewModel.OnWindowLoaded();
-    }
-
-    private void SetLanguageDictionary() {
-      ResourceDictionary dict = new ResourceDictionary();
-      switch (Thread.CurrentThread.CurrentCulture.ToString()) {
-        //case "de-DE":
-        //  dict.Source = new Uri("../Multilingual/German.xaml", UriKind.Relative);
-        //  break;
-        default:
-          dict.Source = new Uri("../Multilingual/English.xaml", UriKind.Relative);
-          break;
-      }
-      this.Resources.MergedDictionaries.Add(dict);
     }
   }
 }

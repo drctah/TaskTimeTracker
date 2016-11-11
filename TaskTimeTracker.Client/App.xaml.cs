@@ -35,5 +35,19 @@ namespace TaskTimeTracker.Client {
       this._notifyIcon.Visible = false;
       Environment.Exit(0);
     }
+
+    private void ApplicationStartup(object sender, StartupEventArgs e) {
+      ResourceDictionary dict = new ResourceDictionary();
+      switch (Thread.CurrentThread.CurrentCulture.ToString()) {
+        //case "de-DE":
+        //  dict.Source = new Uri("../Multilingual/German.xaml", UriKind.Relative);
+        //  break;
+        default:
+          dict.Source = new Uri("../Multilingual/English.xaml", UriKind.Relative);
+          break;
+      }
+
+      Application.Current.Resources.MergedDictionaries.Add(dict);
+    }
   }
 }

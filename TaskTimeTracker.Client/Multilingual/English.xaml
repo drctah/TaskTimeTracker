@@ -1,5 +1,33 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
-  <system:String x:Key="MainWindowTitle">sssss</system:String>
+
+  <!--  MainWindow  -->
+  <system:String x:Key="MainWindow.Title">Timestamps</system:String>
+  <system:String x:Key="MainWindow.AddButton.Content">Add</system:String>
+  <system:String x:Key="MainWindow.ConfigButton.Content">Config</system:String>
+
+  <!--  Tasklist Entry  -->
+  <system:String x:Key="TaskList.Entry.EditButton.Content">Edit</system:String>
+  <system:String x:Key="TaskList.Entry.SaveButton.Content">Save</system:String>
+  <system:String x:Key="TaskList.Entry.AbortButton.Content">Abort</system:String>
+
+  <!--  Inbox Window  -->
+  <system:String x:Key="Inbox.Title">Add new Timestamp</system:String>
+  <system:String x:Key="Inbox.Buttons.Ok.Content">Ok</system:String>
+  <system:String x:Key="Inbox.Buttons.Abort.Content">Abort</system:String>
+  <system:String x:Key="Inbox.TextBlocks.Description.Text">Description:</system:String>
+
+  <!--  Configuration Window  -->
+  <system:String x:Key="ConfigurationWindow.Title">Configuration</system:String>
+  <system:String x:Key="ConfigurationWindow.TextBlocks.ShortCut.Text">ShortCut</system:String>
+  <system:String x:Key="ConfigurationWindow.TextBlocks.Key.Text">Key</system:String>
+  <system:String x:Key="ConfigurationWindow.TextBlocks.Startup.Text">Startup</system:String>
+  <system:String x:Key="ConfigurationWindow.TextBlocks.StampText.Text">Text for Stamp</system:String>
+  <system:String x:Key="ConfigurationWindow.CheckBoxes.Ctrl.Content">Ctrl</system:String>
+  <system:String x:Key="ConfigurationWindow.CheckBoxes.Windows.Content">Windows</system:String>
+  <system:String x:Key="ConfigurationWindow.CheckBoxes.Alt.Content">Alt</system:String>
+  <system:String x:Key="ConfigurationWindow.CheckBoxes.StampOnStartup.Content">Set Stamp on Startup</system:String>
+  <system:String x:Key="ConfigurationWindow.Buttons.Ok.Content">Ok</system:String>
+  <system:String x:Key="ConfigurationWindow.Buttons.Cancel.Content">Cancel</system:String>
 </ResourceDictionary>
