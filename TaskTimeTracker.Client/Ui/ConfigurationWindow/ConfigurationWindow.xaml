@@ -102,8 +102,9 @@
                  Margin="5"
                  HorizontalAlignment="Right"
                  VerticalAlignment="Bottom">
-        <Button Width="50"
+        <Button Width="75"
                 Height="35"
+                Margin="5 0 0 0"
                 Command="{Binding CancelCommand}"
                 Content="{StaticResource ConfigurationWindow.Buttons.Cancel.Content}"
                 DockPanel.Dock="Right" />
