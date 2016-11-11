@@ -1,8 +1,17 @@
-﻿namespace TaskTimeTracker.IO.Contract {
+﻿using System;
+
+namespace TaskTimeTracker.IO.Contract {
   public interface IVersionedReader<TEntity, TReader> {
 
-    TReader Reader { get; }
+    /// <summary>
+    /// The Version this Reader can read
+    /// </summary>
+    Version MatchVersion { get; }
 
-    TEntity Read();
+    /// <summary>
+    /// Read the Entitty
+    /// </summary>
+    /// <returns></returns>
+    TEntity Read(TReader reader);
   }
 }

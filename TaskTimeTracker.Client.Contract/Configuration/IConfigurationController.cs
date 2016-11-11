@@ -1,4 +1,6 @@
-﻿namespace TaskTimeTracker.Client.Contract.Configuration {
+﻿using TaskTimeTracker.Client.Contract.Configuration.Serialization;
+
+namespace TaskTimeTracker.Client.Contract.Configuration {
   public interface IConfigurationController {
     /// <summary>
     /// The Configuration

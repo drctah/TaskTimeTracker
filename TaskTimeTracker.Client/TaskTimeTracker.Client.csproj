@@ -69,18 +69,20 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Configuration.cs" />
+    <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Configuration\ConfigurationV1Reader.cs" />
+    <Compile Include="Configuration\VersionedConfigurationReaderFactory.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskValue.cs" />
     <Compile Include="Ui\Behaviors\TextBoxBehavior.cs" />
     <Compile Include="Ui\Commands\RelayCommand.cs" />
-    <Compile Include="Ui\ConfigurationWindow\ConfigurationController.cs" />
+    <Compile Include="Configuration\ConfigurationController.cs" />
     <Compile Include="Ui\ConfigurationWindow\ConfigurationViewModelController.cs" />
     <Compile Include="Ui\ConfigurationWindow\ConfigurationWindow.xaml.cs">
       <DependentUpon>ConfigurationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\ConfigurationWindow\ConfigurationWindowViewModel.cs" />
-    <Compile Include="Ui\ConfigurationWindow\ConfigurationXmlSerializer.cs" />
+    <Compile Include="Configuration\ConfigurationXmlSerializer.cs" />
     <Compile Include="Ui\Inbox\Inbox.xaml.cs">
       <DependentUpon>Inbox.xaml</DependentUpon>
     </Compile>
@@ -151,6 +153,10 @@
     <ProjectReference Include="..\TaskTimeTracker.Client.Contract\TaskTimeTracker.Client.Contract.csproj">
       <Project>{A0E93E9B-8D9B-4F7D-944E-F8230F3D4BCF}</Project>
       <Name>TaskTimeTracker.Client.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskTimeTracker.IO.Contract\TaskTimeTracker.IO.Contract.csproj">
+      <Project>{b6d5111f-e6ec-4a93-b6e7-2d731beb1ac0}</Project>
+      <Name>TaskTimeTracker.IO.Contract</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

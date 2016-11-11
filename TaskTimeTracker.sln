@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Client", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.IO.Contract", "TaskTimeTracker.IO.Contract\TaskTimeTracker.IO.Contract.csproj", "{B6D5111F-E6EC-4A93-B6E7-2D731BEB1AC0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseLibs", "BaseLibs", "{5DFF91F6-4BC8-40D6-B56D-6182580F5672}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B6D5111F-E6EC-4A93-B6E7-2D731BEB1AC0} = {5DFF91F6-4BC8-40D6-B56D-6182580F5672}
 	EndGlobalSection
 EndGlobal

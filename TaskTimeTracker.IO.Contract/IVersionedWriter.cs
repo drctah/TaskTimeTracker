@@ -1,8 +1,10 @@
-﻿namespace TaskTimeTracker.IO.Contract {
+﻿using System;
+
+namespace TaskTimeTracker.IO.Contract {
   public interface IVersionedWriter<TEntity, TWriter> {
 
-    TWriter Writer { get; }
+    Version MatchVersion { get; }
 
-    void Write(TEntity entity);
+    void Write(TEntity entity, TWriter writer);
   }
 }

@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using TaskTimeTracker.Client.Contract.Configuration;
 
-namespace TaskTimeTracker.Client {
+namespace TaskTimeTracker.Client.Configuration {
   public class Configuration : ITaskTimeTrackerConfiguration {
     public Version Version { get; set; }
     public Key KeyOne { get; set; }
