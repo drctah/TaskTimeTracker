@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:behaviors="clr-namespace:TaskTimeTracker.Client.Ui.Behaviors"
                     xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-                    xmlns:local="clr-namespace:TaskTimeTracker.Client">
+                    xmlns:local="clr-namespace:TaskTimeTracker.Client"
+                    xmlns:mainWindow="clr-namespace:TaskTimeTracker.Client.Ui.MainWindow">
 
   <DataTemplate x:Key="TaskDataTemplate" DataType="local:Task">
     <Border Background="Transparent">
@@ -140,14 +141,13 @@
     </Style.Triggers>
   </Style>
 
-  <Style x:Key="MyBorderStyle"
-         BasedOn="{StaticResource {x:Type Border}}"
-         TargetType="{x:Type Border}">
+  <Style x:Key="MyBorderStyle" TargetType="{x:Type Border}">
     <Setter Property="BorderBrush" Value="{StaticResource HighlightBrush}" />
     <Style.Triggers>
-      <DataTrigger Binding="{Binding Path=IsActive, Source={RelativeSource AncestorType={x:Type Window}}}" Value="False">
+      <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=IsActive}" Value="False">
         <DataTrigger.Setters>
-          <Setter Property="BorderBrush" Value="{StaticResource GrayBrush10}" />
+          <Setter Property="BorderThickness" Value="1" />
+          <Setter Property="BorderBrush" Value="{StaticResource GrayBrush9}" />
         </DataTrigger.Setters>
       </DataTrigger>
     </Style.Triggers>

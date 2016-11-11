@@ -9,7 +9,7 @@
                       Height="115"
                       Loaded="Inbox_OnLoaded"
                       mc:Ignorable="d">
-  <Border BorderBrush="{StaticResource HighlightBrush}" BorderThickness="1 0 1 1">
+  <Border BorderThickness="1 0 1 1" Style="{StaticResource MyBorderStyle}">
     <StackPanel Margin="5">
       <TextBlock>Text:</TextBlock>
       <TextBox x:Name="TextBox"
