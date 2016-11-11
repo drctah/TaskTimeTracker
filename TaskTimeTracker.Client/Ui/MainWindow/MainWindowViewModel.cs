@@ -107,7 +107,8 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
       string text = inboxViewModel.Text;
 
       DateTime dateTime = DateTime.Now;
-      this.Tasks.Add(new Task(dateTime, text));
+      Task newTask = new Task(dateTime, text);
+      this.Tasks.Add(newTask);
     }
 
 
@@ -115,6 +116,14 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {
       this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    public void OnWindowLoaded() {
+      if (!this.Configuration.SetStampOnStartupIsChecked) {
+        return;
+      }
+
+      this.Tasks.Add(new Task(DateTime.Now, this.Configuration.StartupStampText));
     }
   }
 }

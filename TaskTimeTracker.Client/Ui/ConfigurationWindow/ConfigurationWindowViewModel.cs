@@ -12,10 +12,29 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
     private bool _controlIsChecked;
     private bool _altIsChecked;
     private bool _windowsIsChecked;
+    private string _startupStampText;
+    private bool _setStampOnStartupIsChecked;
 
     public event PropertyChangedEventHandler PropertyChanged;
 
     public IConfigurationViewModelController Controller { get; set; }
+
+    public bool SetStampOnStartupIsChecked {
+      get { return this._setStampOnStartupIsChecked; }
+      set {
+        this._setStampOnStartupIsChecked = value;
+        OnPropertyChanged(nameof(this.SetStampOnStartupIsChecked));
+      }
+    }
+
+
+    public string StartupStampText {
+      get { return this._startupStampText; }
+      set {
+        this._startupStampText = value;
+        OnPropertyChanged(nameof(this.StartupStampText));
+      }
+    }
 
     public string KeyOneString {
       get { return this._keyOneString; }
@@ -67,7 +86,7 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
       this.CancelCommand = new RelayCommand(controller.ExecuteCancel);
       this.OkCommand = new RelayCommand(controller.ExecuteOk);
     }
-    
+
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {
       this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
