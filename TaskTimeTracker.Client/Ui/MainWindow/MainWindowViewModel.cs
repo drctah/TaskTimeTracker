@@ -99,6 +99,7 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     private void AddExecute(object o) {
       Inbox.Inbox inbox = new Inbox.Inbox();
       InboxViewModel vm = new InboxViewModel(inbox);
+      
       inbox.DataContext = vm;
       bool? b = inbox.ShowDialog();
 
