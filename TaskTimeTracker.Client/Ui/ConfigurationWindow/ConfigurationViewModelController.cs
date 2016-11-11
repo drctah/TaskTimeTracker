@@ -35,6 +35,8 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
       result.AltIsChecked = configuration.AltIsChecked;
       result.ControlIsChecked = configuration.ControlIsChecked;
       result.WindowsIsChecked = configuration.WindowsIsChecked;
+      result.StartupStampText = configuration.StartupStampText;
+      result.SetStampOnStartupIsChecked = configuration.SetStampOnStartupIsChecked;
       SetKey(configuration.KeyOne, result);
       return result;
     }

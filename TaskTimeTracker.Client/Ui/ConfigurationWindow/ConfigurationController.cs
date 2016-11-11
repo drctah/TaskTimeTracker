@@ -59,6 +59,8 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
       this.Configuration.AltIsChecked = viewModel.AltIsChecked;
       this.Configuration.ControlIsChecked = viewModel.ControlIsChecked;
       this.Configuration.WindowsIsChecked = viewModel.WindowsIsChecked;
+      this.Configuration.StartupStampText = viewModel.StartupStampText;
+      this.Configuration.SetStampOnStartupIsChecked = viewModel.SetStampOnStartupIsChecked;
     }
   }
 }
