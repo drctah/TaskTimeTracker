@@ -77,7 +77,7 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     }
 
     private void ConfigExecute(object obj) {
-      ConfigurationWindow.ConfigurationWindow configWindow = new ConfigurationWindow.ConfigurationWindow();
+      ConfigurationWindow.ConfigurationWindow configWindow = new ConfigurationWindow.ConfigurationWindow(Application.Current.MainWindow);
       configWindow.ConfigurationController = this._configurationController;
       ConfigurationViewModelController configurationViewModelController = new ConfigurationViewModelController(configWindow);
       this._configViewModel = configurationViewModelController.FromConfiguration(this.Configuration);
@@ -97,15 +97,14 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     }
 
     private void AddExecute(object o) {
-      Inbox.Inbox inbox = new Inbox.Inbox();
-      InboxViewModel vm = new InboxViewModel(inbox);
-      
-      inbox.DataContext = vm;
-      bool? b = inbox.ShowDialog();
+      Inbox.Inbox inbox = new Inbox.Inbox(Application.Current.MainWindow);
+      InboxViewModel inboxViewModel = new InboxViewModel(inbox);
+      inbox.DataContext = inboxViewModel;
+      bool? dialogResult = inbox.ShowDialog();
 
-      if (!b.HasValue || !b.Value) { return; }
+      if (!dialogResult.HasValue || !dialogResult.Value) { return; }
 
-      string text = vm.Text;
+      string text = inboxViewModel.Text;
 
       DateTime dateTime = DateTime.Now;
       this.Tasks.Add(new Task(dateTime, text));

@@ -7,13 +7,14 @@ namespace TaskTimeTracker.Client.Ui.Inbox {
   /// Interaction logic for Inbox.xaml
   /// </summary>
   public partial class Inbox : MetroWindow {
-    public Inbox() {
+    public Inbox(Window mainWindow) {
       InitializeComponent();
-      this.DialogResult = false;
+      this.Owner = mainWindow;
     }
 
     private void Inbox_OnLoaded(object sender, RoutedEventArgs e) {
       this.TextBox.Focus();
+      this.DialogResult = false;
     }
 
 

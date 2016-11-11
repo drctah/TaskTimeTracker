@@ -12,8 +12,9 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
     public IConfigurationWindowViewModel ViewModel { get; set; }
     public IConfigurationController ConfigurationController { get; set; }
 
-    public ConfigurationWindow() {
+    public ConfigurationWindow(Window owner) {
       InitializeComponent();
+      this.Owner = owner;
     }
 
     private void OnShortCutInput(object sender, KeyEventArgs e) {
