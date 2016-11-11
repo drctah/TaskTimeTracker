@@ -51,7 +51,7 @@
                 Grid.ColumnSpan="2"
                 HorizontalAlignment="Right"
                 Command="{Binding EditCommand}"
-                Content="Edit"
+                Content="{DynamicResource TaskList.Entry.EditButton.Content}"
                 Padding="10,0" />
       </Grid>
     </Border>
@@ -120,12 +120,12 @@
         <Button Grid.Column="0"
                 Width="50"
                 Command="{Binding SaveCommand}"
-                Content="Save" />
+                Content="{DynamicResource TaskList.Entry.SaveButton.Content}" />
         <Button Grid.Column="1"
                 Width="50"
                 Margin="5,0,0,0"
                 Command="{Binding AbortCommand}"
-                Content="Abort" />
+                Content="{DynamicResource TaskList.Entry.AbortButton.Content}" />
       </Grid>
     </Grid>
   </DataTemplate>
