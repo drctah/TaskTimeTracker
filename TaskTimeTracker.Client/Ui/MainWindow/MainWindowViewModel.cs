@@ -107,7 +107,8 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
       string text = inboxViewModel.Text;
 
       DateTime dateTime = DateTime.Now;
-      this.Tasks.Add(new Task(dateTime, text));
+      Task newTask = new Task(dateTime, text);
+      this.Tasks.Add(newTask);
     }
 
 
