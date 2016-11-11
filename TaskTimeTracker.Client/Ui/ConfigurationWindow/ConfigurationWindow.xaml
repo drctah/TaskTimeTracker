@@ -22,7 +22,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="DarkGreen" BorderThickness="1"/>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="DarkGreen" BorderThickness="1,0,1,1"/>
         <Label Grid.Row="0"
            Grid.Column="0"
            HorizontalAlignment="Center"
@@ -92,7 +92,7 @@
             </Button>
         </DockPanel>
 
-        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="DarkGreen" BorderThickness="1"/>
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="DarkGreen" BorderThickness="1,0,1,1"/>
         <Label Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">Startup</Label>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
             <CheckBox Content="Set Stamp on Startup" IsChecked="{Binding SetStampOnStartupIsChecked}"/>
