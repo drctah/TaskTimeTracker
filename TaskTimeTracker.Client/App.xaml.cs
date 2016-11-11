@@ -39,9 +39,9 @@ namespace TaskTimeTracker.Client {
     private void ApplicationStartup(object sender, StartupEventArgs e) {
       ResourceDictionary dict = new ResourceDictionary();
       switch (Thread.CurrentThread.CurrentCulture.ToString()) {
-        //case "de-DE":
-        //  dict.Source = new Uri("../Multilingual/German.xaml", UriKind.Relative);
-        //  break;
+        case "de-DE":
+          dict.Source = new Uri("../Multilingual/German.xaml", UriKind.Relative);
+          break;
         default:
           dict.Source = new Uri("../Multilingual/English.xaml", UriKind.Relative);
           break;

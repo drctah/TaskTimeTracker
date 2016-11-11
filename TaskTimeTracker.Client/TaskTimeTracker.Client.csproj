@@ -122,6 +122,10 @@
     <EmbeddedResource Include="Clock.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Multilingual\German.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Multilingual\English.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

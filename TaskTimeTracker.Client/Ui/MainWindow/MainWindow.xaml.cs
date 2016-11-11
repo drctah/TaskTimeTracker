@@ -17,7 +17,8 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
 
     public MainWindow() {
       InitializeComponent();
-      IConfigurationController controller = new ConfigurationController(new ConfigurationXmlSerializer<ITaskTimeTrackerConfiguration>());
+      ConfigurationXmlSerializer<ITaskTimeTrackerConfiguration> configurationXmlSerializer = new ConfigurationXmlSerializer<ITaskTimeTrackerConfiguration>();
+      IConfigurationController controller = new ConfigurationController(configurationXmlSerializer);
       controller.Load();
       this._viewModel = new MainWindowViewModel(controller);
       this.DataContext = this._viewModel;
