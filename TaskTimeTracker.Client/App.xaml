@@ -12,6 +12,7 @@
         <!--  Accent and AppTheme setting  -->
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/green.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/basedark.xaml" />
+        <!--  Styles  -->
         <ResourceDictionary Source="Styling.xaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>

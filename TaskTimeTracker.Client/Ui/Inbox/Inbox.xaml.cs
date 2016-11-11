@@ -14,7 +14,6 @@ namespace TaskTimeTracker.Client.Ui.Inbox {
 
     private void Inbox_OnLoaded(object sender, RoutedEventArgs e) {
       this.TextBox.Focus();
-      this.DialogResult = false;
     }
 
 
