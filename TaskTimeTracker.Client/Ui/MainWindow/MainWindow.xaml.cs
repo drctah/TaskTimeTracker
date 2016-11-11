@@ -10,16 +10,23 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
   /// Interaction logic for MainWindow.xaml
   /// </summary>
   public partial class MainWindow : MetroWindow {
+    private MainWindowViewModel _viewModel;
+
     public MainWindow() {
       InitializeComponent();
       IConfigurationController controller = new ConfigurationController(new ConfigurationXmlSerializer<ITaskTimeTrackerConfiguration>());
       controller.Load();
-      this.DataContext = new MainWindowViewModel(controller);
+      this._viewModel = new MainWindowViewModel(controller);
+      this.DataContext = this._viewModel;
     }
 
     private void MainWindow_OnClosing(object sender, CancelEventArgs e) {
       e.Cancel = true;
       this.Visibility = Visibility.Hidden;
+    }
+
+    private void MainWindow_OnLoaded(object sender, RoutedEventArgs e) {
+      this._viewModel.OnWindowLoaded();
     }
   }
 }
