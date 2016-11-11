@@ -69,9 +69,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Configuration\TaskTimeTrackerConfiguration.cs" />
     <Compile Include="Configuration\ConfigurationV1Reader.cs" />
+    <Compile Include="Configuration\TaskTimeTrackerConfigurationController.cs" />
+    <Compile Include="Configuration\TaskTimeTrackerConfigurationSerializer.cs" />
     <Compile Include="Configuration\VersionedConfigurationReaderFactory.cs" />
+    <Compile Include="Configuration\XmlConfigurationController.cs" />
+    <Compile Include="Configuration\XmlConfigurationSerializer.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskValue.cs" />
     <Compile Include="Ui\Behaviors\TextBoxBehavior.cs" />
@@ -82,7 +86,7 @@
       <DependentUpon>ConfigurationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\ConfigurationWindow\ConfigurationWindowViewModel.cs" />
-    <Compile Include="Configuration\ConfigurationXmlSerializer.cs" />
+    <Compile Include="Configuration\ConfigurationSerializer.cs" />
     <Compile Include="Ui\Inbox\Inbox.xaml.cs">
       <DependentUpon>Inbox.xaml</DependentUpon>
     </Compile>
@@ -150,6 +154,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Base.Serialization.Contract\Base.Serialization.Contract.csproj">
+      <Project>{E605D3E6-95E3-4DD6-98D8-5CDD03C33AF4}</Project>
+      <Name>Base.Serialization.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TaskTimeTracker.Client.Contract\TaskTimeTracker.Client.Contract.csproj">
       <Project>{A0E93E9B-8D9B-4F7D-944E-F8230F3D4BCF}</Project>
       <Name>TaskTimeTracker.Client.Contract</Name>

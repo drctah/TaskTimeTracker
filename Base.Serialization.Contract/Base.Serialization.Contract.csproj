@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A0E93E9B-8D9B-4F7D-944E-F8230F3D4BCF}</ProjectGuid>
+    <ProjectGuid>{E605D3E6-95E3-4DD6-98D8-5CDD03C33AF4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TaskTimeTracker.Client.Contract</RootNamespace>
-    <AssemblyName>TaskTimeTracker.Client.Contract</AssemblyName>
+    <RootNamespace>Base.Serialization.Contract</RootNamespace>
+    <AssemblyName>Base.Serialization.Contract</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,42 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\Serialization\IConfigurationVersionedReader.cs" />
-    <Compile Include="Configuration\ITaskTimeTrackerConfiguration.cs" />
-    <Compile Include="EditableDateTime.cs" />
-    <Compile Include="Configuration\IConfiguration.cs" />
-    <Compile Include="Configuration\IConfigurationController.cs" />
-    <Compile Include="Configuration\IConfigurationDataTransferObject.cs" />
-    <Compile Include="Configuration\IConfigurationViewModelController.cs" />
-    <Compile Include="Configuration\IConfigurationWindowViewModel.cs" />
-    <Compile Include="IDataTransferObject.cs" />
-    <Compile Include="IInboxViewModel.cs" />
-    <Compile Include="ITask.cs" />
+    <Compile Include="ISerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Base.Serialization.Contract\Base.Serialization.Contract.csproj">
-      <Project>{e605d3e6-95e3-4dd6-98d8-5cdd03c33af4}</Project>
-      <Name>Base.Serialization.Contract</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TaskTimeTracker.IO.Contract\TaskTimeTracker.IO.Contract.csproj">
-      <Project>{B6D5111F-E6EC-4A93-B6E7-2D731BEB1AC0}</Project>
-      <Name>TaskTimeTracker.IO.Contract</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

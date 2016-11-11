@@ -1,67 +1,31 @@
 ﻿using System;
 using System.IO;
-using System.Text;
-using System.Windows.Input;
-using System.Xml;
+using Base.Serialization.Contract;
 using TaskTimeTracker.Client.Contract.Configuration;
-using TaskTimeTracker.Client.Contract.Configuration.Serialization;
 
 namespace TaskTimeTracker.Client.Configuration {
-  public class ConfigurationController : IConfigurationController {
-    private readonly string _configPath;
-    public ITaskTimeTrackerConfiguration Configuration { get; private set; }
-    public IConfigurationXmlSerializer<ITaskTimeTrackerConfiguration> Serializer { get; private set; }
+  public abstract class ConfigurationController<TSerializer, TSerializationWriter, TSerializationReader, TViewModel> :
+    IConfigurationController<IConfiguration, TViewModel, TSerializer>
+    where TSerializer : ISerializer<IConfiguration, TSerializationWriter, TSerializationReader> {
+    protected readonly string ConfigPath;
+    public ITaskTimeTrackerConfiguration Configuration { get; protected set; }
+    IConfiguration IConfigurationController<IConfiguration, TViewModel, TSerializer>.Configuration { get; }
+    public TSerializer Serializer { get; }
 
-    public ConfigurationController(IConfigurationXmlSerializer<ITaskTimeTrackerConfiguration> serializer) {
+    protected ConfigurationController(TSerializer serializer) {
       this.Serializer = serializer;
-      this._configPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-      this._configPath += "/TaskTimeTracker";
-      if (!Directory.Exists(this._configPath)) {
-        Directory.CreateDirectory(this._configPath);
+      this.ConfigPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+      this.ConfigPath += "/TaskTimeTracker";
+      if (!Directory.Exists(this.ConfigPath)) {
+        Directory.CreateDirectory(this.ConfigPath);
       }
-      this._configPath += @"\TaskTimeTracker.conf";
+      this.ConfigPath += @"\TaskTimeTracker.conf";
     }
 
-    public void Save() {
-      using (FileStream fileStream = new FileStream(this._configPath, FileMode.OpenOrCreate)) {
-        using (XmlTextWriter writer = new XmlTextWriter(fileStream, Encoding.UTF8)) {
-          writer.Formatting = Formatting.Indented;
-          this.Serializer.Serialize(writer, this.Configuration);
-        }
-      }
-    }
+    public abstract void Save();
 
-    public ITaskTimeTrackerConfiguration Load() {
-      ITaskTimeTrackerConfiguration result = null;
+    public abstract IConfiguration Load();
 
-      if (File.Exists(this._configPath)) {
-        using (FileStream fileStream = new FileStream(this._configPath, FileMode.Open)) {
-          XmlReaderSettings xmlReaderSettings = new XmlReaderSettings();
-          xmlReaderSettings.IgnoreWhitespace = true;
-          using (XmlReader reader = XmlReader.Create(new XmlTextReader(fileStream), xmlReaderSettings)) {
-            result = this.Serializer.Deserialize(reader);
-          }
-        }
-      } else {
-        result = new Configuration();
-        result.ControlIsChecked = true;
-        result.WindowsIsChecked = true;
-        result.AltIsChecked = false;
-        result.KeyOne = Key.N;
-      }
-
-      this.Configuration = result;
-      return result;
-    }
-
-    public void CreateFromViewModel(IConfigurationWindowViewModel viewModel) {
-      this.Configuration = new Configuration();
-      this.Configuration.KeyOne = viewModel.KeyOne;
-      this.Configuration.AltIsChecked = viewModel.AltIsChecked;
-      this.Configuration.ControlIsChecked = viewModel.ControlIsChecked;
-      this.Configuration.WindowsIsChecked = viewModel.WindowsIsChecked;
-      this.Configuration.StartupStampText = viewModel.StartupStampText;
-      this.Configuration.SetStampOnStartupIsChecked = viewModel.SetStampOnStartupIsChecked;
-    }
+    public abstract void CreateFromViewModel(TViewModel viewModel);
   }
 }

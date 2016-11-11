@@ -1,4 +1,4 @@
-namespace TaskTimeTracker.Client.Contract.Configuration.Serialization {
+namespace Base.Serialization.Contract {
   /// <summary>
   /// <para>I love this thingy</para>
   /// <para>Such generic, much wow!</para>
@@ -6,8 +6,7 @@ namespace TaskTimeTracker.Client.Contract.Configuration.Serialization {
   /// <typeparam name="TEntity"></typeparam>
   /// <typeparam name="TSerializer"></typeparam>
   /// <typeparam name="TDeserializer"></typeparam>
-  public interface ISerializer<TEntity, TSerializer, TDeserializer> {
-
+  public interface ISerializer<TEntity, TSerializer, TDeserializer>  {
     /// <summary>
     /// Serialize
     /// </summary>

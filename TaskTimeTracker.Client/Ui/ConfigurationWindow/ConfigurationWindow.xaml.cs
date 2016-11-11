@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using MahApps.Metro.Controls;
+using TaskTimeTracker.Client.Configuration;
 using TaskTimeTracker.Client.Contract.Configuration;
 
 namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
@@ -10,7 +11,7 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
   public partial class ConfigurationWindow : MetroWindow {
 
     public IConfigurationWindowViewModel ViewModel { get; set; }
-    public IConfigurationController ConfigurationController { get; set; }
+    public TaskTimeTrackerConfigurationController ConfigurationController { get; set; }
 
     public ConfigurationWindow(Window owner) {
       InitializeComponent();

@@ -1,16 +1,21 @@
-﻿using TaskTimeTracker.Client.Contract.Configuration.Serialization;
-
-namespace TaskTimeTracker.Client.Contract.Configuration {
-  public interface IConfigurationController {
+﻿namespace TaskTimeTracker.Client.Contract.Configuration {
+  /// <summary>
+  /// ConfigurationController
+  /// </summary>
+  /// <typeparam name="TConfiguration"></typeparam>
+  /// <typeparam name="TViewModel"></typeparam>
+  /// <typeparam name="TSerializer"></typeparam>
+  public interface IConfigurationController<TConfiguration, TViewModel, TSerializer>
+    where TConfiguration : IConfiguration {
     /// <summary>
     /// The Configuration
     /// </summary>
-    ITaskTimeTrackerConfiguration Configuration { get; }
+    TConfiguration Configuration { get; }
 
     /// <summary>
     /// Used for serialization
     /// </summary>
-    IConfigurationXmlSerializer<ITaskTimeTrackerConfiguration> Serializer { get; }
+    TSerializer Serializer { get; }
     /// <summary>
     /// Saves the config
     /// </summary>
@@ -19,12 +24,12 @@ namespace TaskTimeTracker.Client.Contract.Configuration {
     /// Loads the config
     /// </summary>
     /// <returns></returns>
-    ITaskTimeTrackerConfiguration Load();
+    TConfiguration Load();
 
     /// <summary>
     /// Creates the config from a viewModel
     /// </summary>
     /// <param name="viewModel"></param>
-    void CreateFromViewModel(IConfigurationWindowViewModel viewModel);
+    void CreateFromViewModel(TViewModel viewModel);
   }
 }

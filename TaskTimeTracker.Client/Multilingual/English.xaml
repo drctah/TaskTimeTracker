@@ -19,7 +19,7 @@
   <system:String x:Key="Inbox.TextBlocks.Description.Text">Description:</system:String>
 
   <!--  Configuration Window  -->
-  <system:String x:Key="ConfigurationWindow.Title">Configuration</system:String>
+  <system:String x:Key="ConfigurationWindow.Title">TaskTimeTrackerConfiguration</system:String>
   <system:String x:Key="ConfigurationWindow.TextBlocks.ShortCut.Text">ShortCut</system:String>
   <system:String x:Key="ConfigurationWindow.TextBlocks.Key.Text">Key</system:String>
   <system:String x:Key="ConfigurationWindow.TextBlocks.Startup.Text">Startup</system:String>

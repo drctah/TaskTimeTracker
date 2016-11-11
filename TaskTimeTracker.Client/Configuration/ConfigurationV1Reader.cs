@@ -9,7 +9,7 @@ namespace TaskTimeTracker.Client.Configuration {
     public Version MatchVersion { get { return new Version(1, 0); } }
 
     public ITaskTimeTrackerConfiguration Read(XmlReader reader) {
-      ITaskTimeTrackerConfiguration result = new Configuration();
+      ITaskTimeTrackerConfiguration result = new TaskTimeTrackerConfiguration();
       ReadShortCutSection(result, reader);
       ReadSetStampOnStartupSection(result, reader);
       return result;

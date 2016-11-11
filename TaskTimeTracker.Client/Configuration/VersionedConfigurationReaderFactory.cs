@@ -13,7 +13,7 @@ namespace TaskTimeTracker.Client.Configuration {
 
     private void AddV1Reader() {
       ConfigurationV1Reader reader = new ConfigurationV1Reader();
-      this._versionToReaderMapping.Add(new Version(1, 0), reader);
+      this._versionToReaderMapping.Add(new Version(1, 0, 0, 0), reader);
     }
 
     public TVersionedReader GetInstance<TVersionedReader>(Version version)

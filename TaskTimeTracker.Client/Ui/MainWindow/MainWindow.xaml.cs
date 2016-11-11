@@ -1,12 +1,8 @@
-﻿using System;
-using System.ComponentModel;
-using System.Threading;
+﻿using System.ComponentModel;
 using System.Windows;
 
 using MahApps.Metro.Controls;
 using TaskTimeTracker.Client.Configuration;
-using TaskTimeTracker.Client.Contract.Configuration;
-using TaskTimeTracker.Client.Ui.ConfigurationWindow;
 
 namespace TaskTimeTracker.Client.Ui.MainWindow {
   /// <summary>
@@ -17,8 +13,8 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
 
     public MainWindow() {
       InitializeComponent();
-      ConfigurationXmlSerializer<ITaskTimeTrackerConfiguration> configurationXmlSerializer = new ConfigurationXmlSerializer<ITaskTimeTrackerConfiguration>();
-      IConfigurationController controller = new ConfigurationController(configurationXmlSerializer);
+      TaskTimeTrackerConfigurationSerializer serializer = new TaskTimeTrackerConfigurationSerializer();
+      TaskTimeTrackerConfigurationController controller = new TaskTimeTrackerConfigurationController(serializer);
       controller.Load();
       this._viewModel = new MainWindowViewModel(controller);
       this.DataContext = this._viewModel;

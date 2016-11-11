@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
-
+using TaskTimeTracker.Client.Configuration;
 using TaskTimeTracker.Client.Contract.Configuration;
 using TaskTimeTracker.Client.Ui.Commands;
 using TaskTimeTracker.Client.Ui.ConfigurationWindow;
@@ -15,7 +15,7 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     private ObservableCollection<Task> _tasks;
     private Visibility _mainWindowVisibility;
     private IConfigurationWindowViewModel _configViewModel;
-    private IConfigurationController _configurationController;
+    private readonly TaskTimeTrackerConfigurationController _configurationController;
 
     public Task SelectedTask { get; set; }
 
@@ -51,13 +51,13 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     public ICommand ConfigCommand { get; set; }
 
     /// <summary>
-    /// Dem Configuration
+    /// Dem TaskTimeTrackerConfiguration
     /// </summary>
     public ITaskTimeTrackerConfiguration Configuration { get; set; }
 
     public ICommand MouseDoubleClick { get; set; }
 
-    public MainWindowViewModel(IConfigurationController configurationController) {
+    public MainWindowViewModel(TaskTimeTrackerConfigurationController configurationController) {
       this.Tasks = new ObservableCollection<Task>();
       this.AddCommand = new RelayCommand(AddExecute);
       this.RemoveCommand = new RelayCommand(RemoveExecute);
