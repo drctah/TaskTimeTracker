@@ -8,10 +8,10 @@ using TaskTimeTracker.Client.Contract.Configuration;
 namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
   public class ConfigurationController : IConfigurationController {
     private readonly string _configPath;
-    public IConfiguration Configuration { get; private set; }
-    public IConfigurationXmlSerializer Serializer { get; private set; }
+    public ITaskTimeTrackerConfiguration Configuration { get; private set; }
+    public IConfigurationXmlSerializer<ITaskTimeTrackerConfiguration> Serializer { get; private set; }
 
-    public ConfigurationController(IConfigurationXmlSerializer serializer) {
+    public ConfigurationController(IConfigurationXmlSerializer<ITaskTimeTrackerConfiguration> serializer) {
       this.Serializer = serializer;
       this._configPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
       this._configPath += "/TaskTimeTracker";
@@ -30,8 +30,8 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
       }
     }
 
-    public IConfiguration Load() {
-      IConfiguration result = null;
+    public ITaskTimeTrackerConfiguration Load() {
+      ITaskTimeTrackerConfiguration result = null;
 
       if (File.Exists(this._configPath)) {
         using (FileStream fileStream = new FileStream(this._configPath, FileMode.Open)) {

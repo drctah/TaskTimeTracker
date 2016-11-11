@@ -17,6 +17,6 @@ namespace TaskTimeTracker.Client.Contract.Configuration {
     /// </summary>
     /// <param name="configuration"></param>
     /// <returns></returns>
-    IConfigurationWindowViewModel FromConfiguration(IConfiguration configuration);
+    IConfigurationWindowViewModel FromConfiguration(ITaskTimeTrackerConfiguration configuration);
   }
 }

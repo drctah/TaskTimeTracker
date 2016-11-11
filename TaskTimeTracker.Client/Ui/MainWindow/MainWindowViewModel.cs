@@ -53,7 +53,7 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     /// <summary>
     /// Dem Configuration
     /// </summary>
-    public IConfiguration Configuration { get; set; }
+    public ITaskTimeTrackerConfiguration Configuration { get; set; }
 
     public ICommand MouseDoubleClick { get; set; }
 

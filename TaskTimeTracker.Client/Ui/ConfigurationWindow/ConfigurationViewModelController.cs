@@ -30,7 +30,7 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
       this.Window.Close();
     }
 
-    public IConfigurationWindowViewModel FromConfiguration(IConfiguration configuration) {
+    public IConfigurationWindowViewModel FromConfiguration(ITaskTimeTrackerConfiguration configuration) {
       IConfigurationWindowViewModel result = new ConfigurationWindowViewModel(this);
       result.AltIsChecked = configuration.AltIsChecked;
       result.ControlIsChecked = configuration.ControlIsChecked;

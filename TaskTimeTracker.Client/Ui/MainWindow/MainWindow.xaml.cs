@@ -12,7 +12,7 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
   public partial class MainWindow : MetroWindow {
     public MainWindow() {
       InitializeComponent();
-      IConfigurationController controller = new ConfigurationController(new ConfigurationXmlSerializer());
+      IConfigurationController controller = new ConfigurationController(new ConfigurationXmlSerializer<ITaskTimeTrackerConfiguration>());
       controller.Load();
       this.DataContext = new MainWindowViewModel(controller);
     }

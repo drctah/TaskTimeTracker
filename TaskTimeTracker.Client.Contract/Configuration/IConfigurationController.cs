@@ -3,12 +3,12 @@
     /// <summary>
     /// The Configuration
     /// </summary>
-    IConfiguration Configuration { get; }
+    ITaskTimeTrackerConfiguration Configuration { get; }
 
     /// <summary>
     /// Used for serialization
     /// </summary>
-    IConfigurationXmlSerializer Serializer { get; }
+    IConfigurationXmlSerializer<ITaskTimeTrackerConfiguration> Serializer { get; }
     /// <summary>
     /// Saves the config
     /// </summary>
@@ -17,7 +17,7 @@
     /// Loads the config
     /// </summary>
     /// <returns></returns>
-    IConfiguration Load();
+    ITaskTimeTrackerConfiguration Load();
 
     /// <summary>
     /// Creates the config from a viewModel
