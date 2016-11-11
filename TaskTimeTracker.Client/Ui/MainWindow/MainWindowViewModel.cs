@@ -85,6 +85,7 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
       configWindow.ShowDialog();
       if (this.Configuration.CompareTo(this._configurationController.Configuration) != 0) {
         this._configurationController.Save();
+        this.Configuration = this._configurationController.Configuration;
       }
     }
 

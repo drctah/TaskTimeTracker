@@ -60,9 +60,6 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
       ReadVersion(reader);
       ReadShortCutSection(configuration, reader);
       ReadSetStampOnStartupSection(configuration, reader);
-
-
-
       reader.ReadEndElement();
 
       return (TConfiguration)configuration;
