@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using Base.Serialization.Contract;
 using TaskTimeTracker.Client.Contract.Configuration;
@@ -26,6 +28,10 @@ namespace TaskTimeTracker.Client.Configuration {
 
     public abstract IConfiguration Load();
 
+    /// <summary>
+    /// Creates the config from a viewModel
+    /// </summary>
+    /// <param name="viewModel"></param>
     public abstract void CreateFromViewModel(TViewModel viewModel);
   }
 }
