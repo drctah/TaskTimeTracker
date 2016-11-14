@@ -4,8 +4,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Client.Contract", "TaskTimeTracker.Client.Contract\TaskTimeTracker.Client.Contract.csproj", "{A0E93E9B-8D9B-4F7D-944E-F8230F3D4BCF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B6D5111F-E6EC-4A93-B6E7-2D731BEB1AC0} = {B6D5111F-E6EC-4A93-B6E7-2D731BEB1AC0}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Client", "TaskTimeTracker.Client\TaskTimeTracker.Client.csproj", "{3D4114A6-CA98-4734-8696-40E687454272}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B6D5111F-E6EC-4A93-B6E7-2D731BEB1AC0} = {B6D5111F-E6EC-4A93-B6E7-2D731BEB1AC0}
+		{E605D3E6-95E3-4DD6-98D8-5CDD03C33AF4} = {E605D3E6-95E3-4DD6-98D8-5CDD03C33AF4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.IO.Contract", "TaskTimeTracker.IO.Contract\TaskTimeTracker.IO.Contract.csproj", "{B6D5111F-E6EC-4A93-B6E7-2D731BEB1AC0}"
 EndProject
