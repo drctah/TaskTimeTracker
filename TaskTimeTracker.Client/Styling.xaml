@@ -2,11 +2,18 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:behaviors="clr-namespace:TaskTimeTracker.Client.Ui.Behaviors"
                     xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-                    xmlns:local="clr-namespace:TaskTimeTracker.Client"
-                    xmlns:mainWindow="clr-namespace:TaskTimeTracker.Client.Ui.MainWindow">
-
+                    xmlns:local="clr-namespace:TaskTimeTracker.Client">
   <DataTemplate x:Key="TaskDataTemplate" DataType="local:Task">
     <Border Background="Transparent">
+      <Border.ContextMenu>
+        <ContextMenu>
+          <MenuItem Command="{Binding CopyCommand}" Header="{DynamicResource TaskList.Entry.ContextMenu.Copy}" />
+          <MenuItem Command="{Binding DataContext.RemoveCommand,
+                                      RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                    CommandParameter="{Binding}"
+                    Header="{DynamicResource TaskList.Entry.ContextMenu.Delete}" />
+        </ContextMenu>
+      </Border.ContextMenu>
       <Grid>
         <Grid.RowDefinitions>
           <RowDefinition />

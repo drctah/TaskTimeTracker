@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Input;
 
 using TaskTimeTracker.Client.Contract;
@@ -17,6 +18,8 @@ namespace TaskTimeTracker.Client {
     public ICommand SaveCommand { get; set; }
 
     public ICommand AbortCommand { get; set; }
+
+    public ICommand CopyCommand { get; set; }
 
     public bool EditMode {
       get { return this._editMode; }
@@ -48,6 +51,11 @@ namespace TaskTimeTracker.Client {
       this.EditCommand = new RelayCommand(EditCommandExecute);
       this.AbortCommand = new RelayCommand(AbortCommandExecute);
       this.SaveCommand = new RelayCommand(SaveCommandExecute);
+      this.CopyCommand = new RelayCommand(CopyExecute);
+    }
+
+    private void CopyExecute(object o) {
+      Clipboard.SetText(this.Tag);
     }
 
     private void SaveCommandExecute(object obj) {
