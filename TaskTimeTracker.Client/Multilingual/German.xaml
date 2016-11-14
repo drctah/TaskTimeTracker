@@ -11,6 +11,9 @@
   <system:String x:Key="TaskList.Entry.EditButton.Content">Bearbeiten</system:String>
   <system:String x:Key="TaskList.Entry.SaveButton.Content">Speichern</system:String>
   <system:String x:Key="TaskList.Entry.AbortButton.Content">Abbrechen</system:String>
+  <!--  ContextMenu  -->
+  <system:String x:Key="TaskList.Entry.ContextMenu.Copy">Kopieren</system:String>
+  <system:String x:Key="TaskList.Entry.ContextMenu.Delete">Löschen</system:String>
 
   <!--  Inbox Window  -->
   <system:String x:Key="Inbox.Title">Neuer Zeitstempel</system:String>

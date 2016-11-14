@@ -11,6 +11,9 @@
   <system:String x:Key="TaskList.Entry.EditButton.Content">Edit</system:String>
   <system:String x:Key="TaskList.Entry.SaveButton.Content">Save</system:String>
   <system:String x:Key="TaskList.Entry.AbortButton.Content">Abort</system:String>
+  <!--  ContextMenu  -->
+  <system:String x:Key="TaskList.Entry.ContextMenu.Copy">Copy</system:String>
+  <system:String x:Key="TaskList.Entry.ContextMenu.Delete">Delete</system:String>
 
   <!--  Inbox Window  -->
   <system:String x:Key="Inbox.Title">Add new Timestamp</system:String>
