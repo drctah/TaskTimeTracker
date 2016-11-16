@@ -81,12 +81,12 @@ namespace TaskTimeTracker.Client {
       this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    public bool Equals(ITask other)
+    public bool Equals(ITaskTimeTrackerContractObject<ITask> other)
     {
       return this._value.Equals(other);
     }
 
-    public int CompareTo(ITask other)
+    public int CompareTo(ITaskTimeTrackerContractObject<ITask> other)
     {
       return this._value.CompareTo(other);
     }

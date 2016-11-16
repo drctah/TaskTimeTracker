@@ -32,6 +32,12 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>TaskTimeTracker.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -45,7 +51,7 @@
     <Compile Include="IDataTransferObject.cs" />
     <Compile Include="IInboxViewModel.cs" />
     <Compile Include="ITask.cs" />
-    <Compile Include="ITaskCollection.cs" />
+    <Compile Include="ITaskTimeTrackerContractObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +67,9 @@
       <Project>{B6D5111F-E6EC-4A93-B6E7-2D731BEB1AC0}</Project>
       <Name>TaskTimeTracker.IO.Contract</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TaskTimeTracker.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

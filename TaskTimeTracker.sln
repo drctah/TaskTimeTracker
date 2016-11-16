@@ -21,6 +21,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base.Serialization.Contract", "Base.Serialization.Contract\Base.Serialization.Contract.csproj", "{E605D3E6-95E3-4DD6-98D8-5CDD03C33AF4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base.Configuration.Contract", "Base.Configuration.Contract\Base.Configuration.Contract.csproj", "{11D877D5-3E7B-47AC-A2A7-EAFDF3B9760F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Client.Data.Tests", "TaskTimeTracker.Client.Data.Tests\TaskTimeTracker.Client.Data.Tests.csproj", "{A7073BD6-D000-46AD-9362-F60F7D02747F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base.Configuration", "Base.Configuration\Base.Configuration.csproj", "{C44F4FE2-8A5C-49CE-B01F-BFF51B5E64BA}"
 EndProject
@@ -52,6 +53,10 @@ Global
 		{6EF99611-4E67-41C9-8486-B24A3877D586}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EF99611-4E67-41C9-8486-B24A3877D586}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EF99611-4E67-41C9-8486-B24A3877D586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7073BD6-D000-46AD-9362-F60F7D02747F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7073BD6-D000-46AD-9362-F60F7D02747F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7073BD6-D000-46AD-9362-F60F7D02747F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7073BD6-D000-46AD-9362-F60F7D02747F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E605D3E6-95E3-4DD6-98D8-5CDD03C33AF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E605D3E6-95E3-4DD6-98D8-5CDD03C33AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E605D3E6-95E3-4DD6-98D8-5CDD03C33AF4}.Release|Any CPU.ActiveCfg = Release|Any CPU

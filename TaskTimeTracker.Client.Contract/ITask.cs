@@ -1,10 +1,12 @@
 ﻿using System;
 
-namespace TaskTimeTracker.Client.Contract {
+namespace TaskTimeTracker.Client.Contract
+{
   /// <summary>
   /// Interface for Tasks
   /// </summary>
-  public interface ITask : IEquatable<ITask>, IComparable<ITask>, IComparable, ICloneable {
+  public interface ITask : ITaskTimeTrackerContractObject<ITask>
+  {
     /// <summary>
     /// Date of Creation
     /// </summary>
@@ -14,5 +16,12 @@ namespace TaskTimeTracker.Client.Contract {
     /// The Tag of the Task
     /// </summary>
     string Tag { get; set; }
+  }
+
+  /// <summary>
+  /// 
+  /// </summary>
+  public interface ITaskCollection : ITaskTimeTrackerContractObjectCollection<ITaskCollection, ITask>
+  {
   }
 }

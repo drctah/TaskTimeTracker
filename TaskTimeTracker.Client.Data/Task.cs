@@ -3,7 +3,7 @@ using TaskTimeTracker.Client.Contract;
 
 namespace TaskTimeTracker.Client.Data
 {
-  public class Task : ITask
+  public class Task : ClientBusinessBase<ITask>
   {
     public EditableDateTime CreationTime { get; set; }
 
@@ -95,37 +95,67 @@ namespace TaskTimeTracker.Client.Data
       return hash;
     }
 
-    public override bool Equals(object obj)
+    //public override bool Equals(object obj)
+    //{
+    //  if (obj is ITask) {
+    //    return Task.Compare(this, (ITask)obj) == 0;
+    //  }
+
+    //  return false;
+    //}
+
+    //public int CompareTo(object obj)
+    //{
+    //  if (obj is ITask) {
+    //    return Task.Compare(this, (ITask)obj);
+    //  }
+
+    //  return 1;
+    //}
+
+    //public int CompareTo(ITask other)
+    //{
+    //  return Task.Compare(this, other);
+    //}
+
+    //public bool Equals(ITask other)
+    //{
+    //  return Task.Compare(this, other) == 0;
+    //}
+
+    public override object Clone()
     {
-      if (obj is ITask) {
-        return Task.Compare(this, (ITask)obj) == 0;
+      return new Task((ITask)this);
+    }
+
+    public override int CompareTo(ITaskTimeTrackerContractObject<ITask> other)
+    {
+      Task obj = other as Task;
+      if (object.ReferenceEquals(obj, null)) {
+        return 1;
       }
 
-      return false;
-    }
-
-    public int CompareTo(object obj)
-    {
-      if (obj is ITask) {
-        return Task.Compare(this, (ITask)obj);
+      int result = string.Compare(this.Tag, obj.Tag, StringComparison.OrdinalIgnoreCase);
+      if (result != 0) {
+        return result;
       }
 
-      return 1;
-    }
+      bool n1 = object.ReferenceEquals(this.CreationTime, null);
+      bool n2 = object.ReferenceEquals(obj.CreationTime, null);
 
-    public int CompareTo(ITask other)
-    {
-      return Task.Compare(this, other);
-    }
+      if (n1 ^ n2) {
+        return n1 ? -1 : 1;
+      }
 
-    public bool Equals(ITask other)
-    {
-      return Task.Compare(this, other) == 0;
-    }
+      if (n1) {
+        return 0;
+      }
 
-    public object Clone()
-    {
-      return new Task(this);
+      return this.CreationTime.ToDateTime().CompareTo(obj.CreationTime.ToDateTime());
     }
+  }
+
+  public class TaskCollection : ClientBusinessCollectionBase<ITaskCollection, ITask>
+  {
   }
 }
