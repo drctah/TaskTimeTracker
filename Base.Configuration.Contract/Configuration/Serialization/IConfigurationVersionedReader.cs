@@ -1,7 +1,6 @@
 ﻿using System.Xml;
-using TaskTimeTracker.IO.Contract;
 
-namespace TaskTimeTracker.Client.Contract.Configuration.Serialization {
+namespace Base.Configuration.Contract.Configuration.Serialization {
   /// <summary>
   /// Wrapperinterface for VersionedConfigurationReader
   /// </summary>

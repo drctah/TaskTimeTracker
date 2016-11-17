@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TaskTimeTracker.Client.Contract.Configuration {
+namespace Base.Configuration.Contract.Configuration {
   public interface IConfiguration {
     Version Version { get; }
   }

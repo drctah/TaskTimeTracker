@@ -1,4 +1,4 @@
-﻿namespace TaskTimeTracker.Client.Contract.Configuration {
+﻿namespace Base.Configuration.Contract.Configuration {
   /// <summary>
   /// ConfigurationController
   /// </summary>
