@@ -3,7 +3,7 @@ using TaskTimeTracker.Client.Contract;
 
 namespace TaskTimeTracker.Client.Data
 {
-  public class Task : ClientBusinessBase<ITask>
+  public class Task : ClientBusinessBase<ITask, Task>, ITask
   {
     public EditableDateTime CreationTime { get; set; }
 
@@ -95,34 +95,6 @@ namespace TaskTimeTracker.Client.Data
       return hash;
     }
 
-    //public override bool Equals(object obj)
-    //{
-    //  if (obj is ITask) {
-    //    return Task.Compare(this, (ITask)obj) == 0;
-    //  }
-
-    //  return false;
-    //}
-
-    //public int CompareTo(object obj)
-    //{
-    //  if (obj is ITask) {
-    //    return Task.Compare(this, (ITask)obj);
-    //  }
-
-    //  return 1;
-    //}
-
-    //public int CompareTo(ITask other)
-    //{
-    //  return Task.Compare(this, other);
-    //}
-
-    //public bool Equals(ITask other)
-    //{
-    //  return Task.Compare(this, other) == 0;
-    //}
-
     public override object Clone()
     {
       return new Task((ITask)this);
@@ -155,7 +127,7 @@ namespace TaskTimeTracker.Client.Data
     }
   }
 
-  public class TaskCollection : ClientBusinessCollectionBase<ITaskCollection, ITask>
+  public class TaskCollection : ClientBusinessCollectionBase<ITaskCollection, TaskCollection, ITask, Task>, ITaskCollection
   {
   }
 }

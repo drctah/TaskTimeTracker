@@ -6,8 +6,9 @@ using TaskTimeTracker.Client.Contract;
 
 namespace TaskTimeTracker.Client.Data
 {
-  public abstract class ClientBusinessBase<T> : ITaskTimeTrackerContractObject<T>, ISaveable, ILoadable
-    where T : ITaskTimeTrackerContractObject<T>
+  public abstract class ClientBusinessBase<TInterface, TType> : ITaskTimeTrackerContractObject<TInterface>, ISaveable, ILoadable
+    where TInterface : ITaskTimeTrackerContractObject<TInterface>
+    where TType : TInterface
   {
     protected JsonSerializer serializer = new JsonSerializer();
 
@@ -59,7 +60,7 @@ namespace TaskTimeTracker.Client.Data
       serializer.Populate(reader, this);
     }
 
-    public static int Compare(ITaskTimeTrackerContractObject<T> v1, ITaskTimeTrackerContractObject<T> v2)
+    public static int Compare(ITaskTimeTrackerContractObject<TInterface> v1, ITaskTimeTrackerContractObject<TInterface> v2)
     {
       bool n1 = object.ReferenceEquals(v1, null);
       bool n2 = object.ReferenceEquals(v2, null);
@@ -75,15 +76,15 @@ namespace TaskTimeTracker.Client.Data
       return v1.CompareTo(v2);
     }
 
-    public virtual bool Equals(ITaskTimeTrackerContractObject<T> other)
+    public virtual bool Equals(ITaskTimeTrackerContractObject<TInterface> other)
     {
-      return ClientBusinessBase<T>.Compare(this, (ITaskTimeTrackerContractObject<T>)other) == 0;
+      return ClientBusinessBase<TInterface, TType>.Compare(this, (ITaskTimeTrackerContractObject<TInterface>)other) == 0;
     }
 
     public override bool Equals(object obj)
     {
-      if (obj is ITaskTimeTrackerContractObject<T>) {
-        return ClientBusinessBase<T>.Compare(this, (ITaskTimeTrackerContractObject<T>)obj) == 0;
+      if (obj is ITaskTimeTrackerContractObject<TInterface>) {
+        return ClientBusinessBase<TInterface, TType>.Compare(this, (ITaskTimeTrackerContractObject<TInterface>)obj) == 0;
       }
 
       return false;
@@ -91,8 +92,8 @@ namespace TaskTimeTracker.Client.Data
 
     public virtual int CompareTo(object obj)
     {
-      if (obj is T) {
-        return ClientBusinessBase<T>.Compare(this, (ITaskTimeTrackerContractObject<T>)obj);
+      if (obj is ITaskTimeTrackerContractObject<TInterface>) {
+        return ClientBusinessBase<TInterface, TType>.Compare(this, (ITaskTimeTrackerContractObject<TInterface>)obj);
       }
 
       return 1;
@@ -110,6 +111,6 @@ namespace TaskTimeTracker.Client.Data
 
     public abstract object Clone();
 
-    public abstract int CompareTo(ITaskTimeTrackerContractObject<T> other);
+    public abstract int CompareTo(ITaskTimeTrackerContractObject<TInterface> other);
   }
 }

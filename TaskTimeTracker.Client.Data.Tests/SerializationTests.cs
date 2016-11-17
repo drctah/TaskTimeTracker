@@ -47,13 +47,13 @@ namespace TaskTimeTracker.Client.Data.Tests
     }
 
     private void TestBusinessObject<T, TInterface>(T value1)
-      where T : ClientBusinessBase<TInterface>, ILoadable, ISaveable, new()
+      where T : ClientBusinessBase<TInterface, T>, TInterface, ILoadable, ISaveable, new()
       where TInterface : ITaskTimeTrackerContractObject<TInterface>
     {
       T value2 = new T();
       string data = this.TestSaveable(value1);
       this.TestLoadable(value2, data);
-      Assert.AreEqual(0, ClientBusinessBase<TInterface>.Compare(value1, value2));
+      Assert.AreEqual(0, ClientBusinessBase<TInterface, T>.Compare(value1, value2));
     }
 
     [TestMethod()]
@@ -61,20 +61,6 @@ namespace TaskTimeTracker.Client.Data.Tests
     {
       Task v = this.CreateRandomTask();
       this.TestBusinessObject<Task, ITask>(v);
-
-      //StringBuilder sb = new StringBuilder();
-      //using (TextWriter tw = new StringWriter(sb)) {
-      //  task1.Save(tw);
-      //}
-
-      //string text = sb.ToString();
-
-      //Task task2 = new Task();
-      //using (TextReader reader = new StringReader(text)) {
-      //  task2.Load(reader);
-      //}
-
-      //Assert.AreEqual(0, Data.Task.Compare(task1, task2));
     }
 
     [TestMethod()]
@@ -82,24 +68,11 @@ namespace TaskTimeTracker.Client.Data.Tests
     {
       TaskCollection tasks1 = new TaskCollection();
 
-      tasks1.Add(this.CreateRandomTask());
-      tasks1.Add(this.CreateRandomTask());
+      for(int cnt = 0; cnt < 10; ++cnt) {
+        tasks1.Add(this.CreateRandomTask());
+      }
 
-      //this.TestBusinessObject<TaskCollection, ITaskCollection>(tasks1);
-
-      //StringBuilder sb = new StringBuilder();
-      //using (TextWriter tw = new StringWriter(sb)) {
-      //  tasks1.Save(tw);
-      //}
-
-      //string text = sb.ToString();
-
-      //TaskCollection tasks2 = new TaskCollection();
-      //using (TextReader reader = new StringReader(text)) {
-      //  tasks2.Load(reader);
-      //}
-
-      //Assert.AreEqual(0, Data.TaskCollection.Compare(tasks1, tasks2));
+      this.TestBusinessObject<TaskCollection, ITaskCollection>(tasks1);
     }
   }
 }

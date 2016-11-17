@@ -12,10 +12,10 @@ namespace TaskTimeTracker.Client.Contract
   {
   }
 
-  public interface ITaskTimeTrackerContractObjectCollection<TCollection, TElement> : ICollection<ITaskTimeTrackerContractObject<TElement>>, ITaskTimeTrackerContractObject<TCollection>
+  public interface ITaskTimeTrackerContractObjectCollection<TCollection, TElement> : ICollection<TElement>, ITaskTimeTrackerContractObject<TCollection>
     where TCollection : ITaskTimeTrackerContractBaseObject
     where TElement : ITaskTimeTrackerContractBaseObject
   {
-    void AddRange(IEnumerable<ITaskTimeTrackerContractObject<TElement>> items);
+    void AddRange(IEnumerable<TElement> items);
   }
 }
