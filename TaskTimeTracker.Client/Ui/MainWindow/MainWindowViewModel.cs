@@ -93,10 +93,13 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
       this._configViewModel = configurationViewModelController.FromConfiguration(this.Configuration);
       configWindow.ViewModel = this._configViewModel;
       configWindow.ShowDialog();
-      if (this.Configuration.CompareTo(this._configurationController.Configuration) != 0) {
-        this._configurationController.Save();
-        this.Configuration = this._configurationController.Configuration;
+
+      if (this.Configuration.CompareTo(this._configurationController.Configuration) == 0) {
+        return;
       }
+
+      this._configurationController.Save();
+      this.Configuration = this._configurationController.Configuration;
     }
 
     private void RemoveExecute(object obj) {

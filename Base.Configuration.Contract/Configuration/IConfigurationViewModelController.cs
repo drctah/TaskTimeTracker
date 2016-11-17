@@ -1,7 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Input;
-
-namespace TaskTimeTracker.Client.Contract.Configuration {
+﻿namespace Base.Configuration.Contract.Configuration {
   public interface IConfigurationViewModelController {
 
     Window Window { get; }
