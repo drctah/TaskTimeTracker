@@ -27,6 +27,12 @@
     TConfiguration Load();
 
     /// <summary>
+    /// Creates a configuration with default values
+    /// </summary>
+    /// <returns></returns>
+    TConfiguration CreateDefaultConfiguration();
+
+    /// <summary>
     /// Creates the config from a viewModel
     /// </summary>
     /// <param name="viewModel"></param>

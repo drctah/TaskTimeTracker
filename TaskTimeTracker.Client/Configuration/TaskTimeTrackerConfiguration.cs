@@ -4,7 +4,7 @@ using TaskTimeTracker.Client.Contract.Configuration;
 
 namespace TaskTimeTracker.Client.Configuration {
   public class TaskTimeTrackerConfiguration : ITaskTimeTrackerConfiguration {
-    public Version Version { get; set; }
+    public Version Version { get { return new Version(1, 0, 0, 0); } }
     public Key KeyOne { get; set; }
     public bool ControlIsChecked { get; set; }
     public bool AltIsChecked { get; set; }

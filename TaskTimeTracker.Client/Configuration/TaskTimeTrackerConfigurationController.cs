@@ -1,11 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
 using System.Windows.Input;
 using System.Xml;
 using TaskTimeTracker.Client.Contract.Configuration;
 
 namespace TaskTimeTracker.Client.Configuration {
-  public class TaskTimeTrackerConfigurationController : XmlConfigurationController<XmlConfigurationSerializer<IConfiguration>, IConfigurationWindowViewModel>{
+  public class TaskTimeTrackerConfigurationController : XmlConfigurationController<XmlConfigurationSerializer<IConfiguration>, IConfigurationWindowViewModel> {
     public TaskTimeTrackerConfigurationController(XmlConfigurationSerializer<IConfiguration> serializer)
       : base(serializer) {
     }
@@ -31,14 +32,19 @@ namespace TaskTimeTracker.Client.Configuration {
           }
         }
       } else {
-        result = new TaskTimeTrackerConfiguration();
-        result.ControlIsChecked = true;
-        result.WindowsIsChecked = true;
-        result.AltIsChecked = false;
-        result.KeyOne = Key.N;
+        result = (ITaskTimeTrackerConfiguration) CreateDefaultConfiguration();
       }
 
       this.Configuration = result;
+      return result;
+    }
+
+    public override IConfiguration CreateDefaultConfiguration() {
+      TaskTimeTrackerConfiguration result = new TaskTimeTrackerConfiguration();
+      result.ControlIsChecked = true;
+      result.WindowsIsChecked = true;
+      result.AltIsChecked = false;
+      result.KeyOne = Key.N;
       return result;
     }
 
