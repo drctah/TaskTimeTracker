@@ -69,11 +69,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Configuration\TaskTimeTrackerConfiguration.cs" />
-    <Compile Include="Configuration\ConfigurationV1Reader.cs" />
-    <Compile Include="Configuration\TaskTimeTrackerConfigurationController.cs" />
-    <Compile Include="Configuration\TaskTimeTrackerConfigurationSerializer.cs" />
-    <Compile Include="Configuration\VersionedConfigurationReaderFactory.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskValue.cs" />
     <Compile Include="Ui\Behaviors\TextBoxBehavior.cs" />
@@ -165,6 +160,14 @@
     <ProjectReference Include="..\TaskTimeTracker.Client.Contract\TaskTimeTracker.Client.Contract.csproj">
       <Project>{A0E93E9B-8D9B-4F7D-944E-F8230F3D4BCF}</Project>
       <Name>TaskTimeTracker.Client.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskTimeTracker.Configuration.Contract\TaskTimeTracker.Configuration.Contract.csproj">
+      <Project>{62A98091-1855-4A6A-B0C5-925111449B74}</Project>
+      <Name>TaskTimeTracker.Configuration.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskTimeTracker.Configuration\TaskTimeTracker.Configuration.csproj">
+      <Project>{880798DB-118F-4C15-9BEF-8289C98C0C48}</Project>
+      <Name>TaskTimeTracker.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\TaskTimeTracker.IO.Contract\TaskTimeTracker.IO.Contract.csproj">
       <Project>{b6d5111f-e6ec-4a93-b6e7-2d731beb1ac0}</Project>

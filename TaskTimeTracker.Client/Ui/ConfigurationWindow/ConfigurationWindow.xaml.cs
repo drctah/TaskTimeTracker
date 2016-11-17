@@ -1,9 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Input;
-using Base.Configuration.Contract.Configuration;
 using MahApps.Metro.Controls;
-using TaskTimeTracker.Client.Configuration;
-using TaskTimeTracker.Client.Contract.Configuration;
+using TaskTimeTracker.Configuration;
+using TaskTimeTracker.Configuration.Contract;
 
 namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
   /// <summary>

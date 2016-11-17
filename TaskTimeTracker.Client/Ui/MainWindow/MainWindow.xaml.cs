@@ -4,7 +4,7 @@ using System.IO;
 using System.Windows;
 
 using MahApps.Metro.Controls;
-using TaskTimeTracker.Client.Configuration;
+using TaskTimeTracker.Configuration;
 
 namespace TaskTimeTracker.Client.Ui.MainWindow {
   /// <summary>

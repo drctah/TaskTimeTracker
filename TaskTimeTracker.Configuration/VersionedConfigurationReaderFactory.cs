@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Base.Configuration.Contract.Configuration.Serialization;
 
-namespace TaskTimeTracker.Client.Configuration {
+namespace TaskTimeTracker.Configuration {
   public class VersionedConfigurationReaderFactory {
     readonly Dictionary<Version, IConfigurationVersionedReader> _versionToReaderMapping;
 

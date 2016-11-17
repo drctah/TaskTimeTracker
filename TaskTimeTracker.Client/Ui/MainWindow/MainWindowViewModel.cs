@@ -5,11 +5,11 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using Microsoft.Win32;
-using TaskTimeTracker.Client.Configuration;
-using TaskTimeTracker.Client.Contract.Configuration;
 using TaskTimeTracker.Client.Ui.Commands;
 using TaskTimeTracker.Client.Ui.ConfigurationWindow;
 using TaskTimeTracker.Client.Ui.Inbox;
+using TaskTimeTracker.Configuration;
+using TaskTimeTracker.Configuration.Contract;
 
 namespace TaskTimeTracker.Client.Ui.MainWindow {
   internal class MainWindowViewModel {

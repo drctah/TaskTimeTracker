@@ -24,6 +24,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base.Configuration.Contract
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base.Configuration", "Base.Configuration\Base.Configuration.csproj", "{C44F4FE2-8A5C-49CE-B01F-BFF51B5E64BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Configuration", "TaskTimeTracker.Configuration\TaskTimeTracker.Configuration.csproj", "{880798DB-118F-4C15-9BEF-8289C98C0C48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTimeTracker.Configuration.Contract", "TaskTimeTracker.Configuration.Contract\TaskTimeTracker.Configuration.Contract.csproj", "{62A98091-1855-4A6A-B0C5-925111449B74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +58,14 @@ Global
 		{C44F4FE2-8A5C-49CE-B01F-BFF51B5E64BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C44F4FE2-8A5C-49CE-B01F-BFF51B5E64BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C44F4FE2-8A5C-49CE-B01F-BFF51B5E64BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{880798DB-118F-4C15-9BEF-8289C98C0C48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{880798DB-118F-4C15-9BEF-8289C98C0C48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{880798DB-118F-4C15-9BEF-8289C98C0C48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{880798DB-118F-4C15-9BEF-8289C98C0C48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62A98091-1855-4A6A-B0C5-925111449B74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62A98091-1855-4A6A-B0C5-925111449B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62A98091-1855-4A6A-B0C5-925111449B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62A98091-1855-4A6A-B0C5-925111449B74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

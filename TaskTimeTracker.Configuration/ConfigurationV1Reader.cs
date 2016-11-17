@@ -3,9 +3,9 @@ using System.Windows.Input;
 using System.Xml;
 using Base.Configuration.Contract.Configuration;
 using Base.Configuration.Contract.Configuration.Serialization;
-using TaskTimeTracker.Client.Contract.Configuration;
+using TaskTimeTracker.Configuration.Contract;
 
-namespace TaskTimeTracker.Client.Configuration {
+namespace TaskTimeTracker.Configuration {
   public class ConfigurationV1Reader : IConfigurationVersionedReader {
     public Version MatchVersion { get { return new Version(1, 0, 0, 0); } }
 

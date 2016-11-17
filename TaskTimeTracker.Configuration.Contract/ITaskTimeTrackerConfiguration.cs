@@ -2,7 +2,7 @@ using System;
 using System.Windows.Input;
 using Base.Configuration.Contract.Configuration;
 
-namespace TaskTimeTracker.Client.Contract.Configuration {
+namespace TaskTimeTracker.Configuration.Contract {
   public interface ITaskTimeTrackerConfiguration : IConfiguration, IComparable<ITaskTimeTrackerConfiguration> {
     Key KeyOne { get; set; }
     bool ControlIsChecked { get; set; }

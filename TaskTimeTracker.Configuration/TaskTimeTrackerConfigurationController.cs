@@ -4,9 +4,9 @@ using System.Windows.Input;
 using System.Xml;
 using Base.Configuration;
 using Base.Configuration.Contract.Configuration;
-using TaskTimeTracker.Client.Contract.Configuration;
+using TaskTimeTracker.Configuration.Contract;
 
-namespace TaskTimeTracker.Client.Configuration {
+namespace TaskTimeTracker.Configuration {
   public class TaskTimeTrackerConfigurationController : XmlConfigurationController<XmlConfigurationSerializer<IConfiguration>, IConfigurationWindowViewModel> {
 
     public TaskTimeTrackerConfigurationController(XmlConfigurationSerializer<IConfiguration> serializer, string configPath)

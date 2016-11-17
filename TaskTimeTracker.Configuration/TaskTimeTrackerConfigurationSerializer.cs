@@ -3,9 +3,9 @@ using System.Xml;
 using Base.Configuration;
 using Base.Configuration.Contract.Configuration;
 using Base.Configuration.Contract.Configuration.Serialization;
-using TaskTimeTracker.Client.Contract.Configuration;
+using TaskTimeTracker.Configuration.Contract;
 
-namespace TaskTimeTracker.Client.Configuration {
+namespace TaskTimeTracker.Configuration {
   public class TaskTimeTrackerConfigurationSerializer : XmlConfigurationSerializer<IConfiguration> {
     protected override void SerializeInternal(XmlWriter writer, IConfiguration configuration) {
       WriteShortCutSection(writer, configuration);

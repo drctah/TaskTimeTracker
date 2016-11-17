@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Input;
-using TaskTimeTracker.Client.Contract.Configuration;
+using TaskTimeTracker.Configuration.Contract;
 
-namespace TaskTimeTracker.Client.Configuration {
+namespace TaskTimeTracker.Configuration {
   public class TaskTimeTrackerConfiguration : ITaskTimeTrackerConfiguration {
     public Version Version { get { return new Version(1, 0, 0, 0); } }
     public Key KeyOne { get; set; }
