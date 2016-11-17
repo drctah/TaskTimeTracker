@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Xml;
-
-using TaskTimeTracker.Client.Contract.Configuration;
+using Base.Configuration.Contract.Configuration;
 
 namespace TaskTimeTracker.Client.Configuration {
   public abstract class XmlConfigurationSerializer<TConfiguration> : ConfigurationSerializer<TConfiguration, XmlWriter, XmlReader>

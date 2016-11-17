@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Base.Configuration.Contract.Configuration;
 using Base.Serialization.Contract;
 using TaskTimeTracker.Client.Contract.Configuration;
 

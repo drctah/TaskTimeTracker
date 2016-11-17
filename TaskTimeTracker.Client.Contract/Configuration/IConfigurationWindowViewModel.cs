@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
 
-namespace Base.Configuration.Contract.Configuration {
+namespace TaskTimeTracker.Client.Contract.Configuration {
   public interface IConfigurationWindowViewModel : INotifyPropertyChanged {
     string KeyOneString { get; set; }
     Key KeyOne { get; set; }

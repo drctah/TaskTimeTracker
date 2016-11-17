@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Windows.Input;
 using System.Xml;
+using Base.Configuration.Contract.Configuration;
+using Base.Configuration.Contract.Configuration.Serialization;
 using TaskTimeTracker.Client.Contract.Configuration;
-using TaskTimeTracker.Client.Contract.Configuration.Serialization;
 
 namespace TaskTimeTracker.Client.Configuration {
   public class ConfigurationV1Reader : IConfigurationVersionedReader {
     public Version MatchVersion { get { return new Version(1, 0); } }
 
-    public ITaskTimeTrackerConfiguration Read(XmlReader reader) {
+    public IConfiguration Read(XmlReader reader) {
       ITaskTimeTrackerConfiguration result = new TaskTimeTrackerConfiguration();
       ReadShortCutSection(result, reader);
       ReadSetStampOnStartupSection(result, reader);

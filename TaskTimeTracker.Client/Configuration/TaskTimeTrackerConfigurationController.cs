@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Input;
 using System.Xml;
+using Base.Configuration.Contract.Configuration;
 using TaskTimeTracker.Client.Contract.Configuration;
 
 namespace TaskTimeTracker.Client.Configuration {

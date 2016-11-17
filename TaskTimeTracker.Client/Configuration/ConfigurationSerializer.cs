@@ -1,7 +1,6 @@
 ﻿using System;
-
+using Base.Configuration.Contract.Configuration;
 using Base.Serialization.Contract;
-using TaskTimeTracker.Client.Contract.Configuration;
 
 namespace TaskTimeTracker.Client.Configuration {
   public abstract class ConfigurationSerializer<TConfiguration, TSerializer, TDeserializer> : ISerializer<TConfiguration, TSerializer, TDeserializer>
