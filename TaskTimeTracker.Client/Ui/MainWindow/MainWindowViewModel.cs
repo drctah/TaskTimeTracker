@@ -66,7 +66,7 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
       this.MouseDoubleClick = new RelayCommand(this.MouseDoubleClickExecute);
       this.MainWindowVisibility = Visibility.Visible;
       this._configurationController = configurationController;
-      this.Configuration = this._configurationController.Configuration;
+      this.Configuration = (ITaskTimeTrackerConfiguration) this._configurationController.Configuration;
       Microsoft.Win32.SystemEvents.SessionSwitch += new Microsoft.Win32.SessionSwitchEventHandler(OnSystemSessenSwitchEvent);
     }
 
@@ -94,12 +94,12 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
       configWindow.ViewModel = this._configViewModel;
       configWindow.ShowDialog();
 
-      if (this.Configuration.CompareTo(this._configurationController.Configuration) == 0) {
+      if (this.Configuration.CompareTo((ITaskTimeTrackerConfiguration) this._configurationController.Configuration) == 0) {
         return;
       }
 
       this._configurationController.Save();
-      this.Configuration = this._configurationController.Configuration;
+      this.Configuration = (ITaskTimeTrackerConfiguration) this._configurationController.Configuration;
     }
 
     private void RemoveExecute(object obj) {

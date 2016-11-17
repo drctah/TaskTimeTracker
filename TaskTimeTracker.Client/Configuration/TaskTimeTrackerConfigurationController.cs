@@ -1,15 +1,16 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Text;
 using System.Windows.Input;
 using System.Xml;
+using Base.Configuration;
 using Base.Configuration.Contract.Configuration;
 using TaskTimeTracker.Client.Contract.Configuration;
 
 namespace TaskTimeTracker.Client.Configuration {
   public class TaskTimeTrackerConfigurationController : XmlConfigurationController<XmlConfigurationSerializer<IConfiguration>, IConfigurationWindowViewModel> {
-    public TaskTimeTrackerConfigurationController(XmlConfigurationSerializer<IConfiguration> serializer)
-      : base(serializer) {
+
+    public TaskTimeTrackerConfigurationController(XmlConfigurationSerializer<IConfiguration> serializer, string configPath)
+      : base(serializer, configPath) {
     }
 
     public override void Save() {
@@ -33,7 +34,7 @@ namespace TaskTimeTracker.Client.Configuration {
           }
         }
       } else {
-        result = (ITaskTimeTrackerConfiguration) CreateDefaultConfiguration();
+        result = (ITaskTimeTrackerConfiguration)CreateDefaultConfiguration();
       }
 
       this.Configuration = result;
@@ -51,13 +52,14 @@ namespace TaskTimeTracker.Client.Configuration {
 
 
     public override void CreateFromViewModel(IConfigurationWindowViewModel viewModel) {
-      this.Configuration = new TaskTimeTrackerConfiguration();
-      this.Configuration.KeyOne = viewModel.KeyOne;
-      this.Configuration.AltIsChecked = viewModel.AltIsChecked;
-      this.Configuration.ControlIsChecked = viewModel.ControlIsChecked;
-      this.Configuration.WindowsIsChecked = viewModel.WindowsIsChecked;
-      this.Configuration.StartupStampText = viewModel.StartupStampText;
-      this.Configuration.SetStampOnStartupIsChecked = viewModel.SetStampOnStartupIsChecked;
+      ITaskTimeTrackerConfiguration config = new TaskTimeTrackerConfiguration();
+      config.KeyOne = viewModel.KeyOne;
+      config.AltIsChecked = viewModel.AltIsChecked;
+      config.ControlIsChecked = viewModel.ControlIsChecked;
+      config.WindowsIsChecked = viewModel.WindowsIsChecked;
+      config.StartupStampText = viewModel.StartupStampText;
+      config.SetStampOnStartupIsChecked = viewModel.SetStampOnStartupIsChecked;
+      this.Configuration = config;
     }
   }
 }
