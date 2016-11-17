@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml;
+using Base.Configuration;
 using Base.Configuration.Contract.Configuration;
 using Base.Configuration.Contract.Configuration.Serialization;
 using TaskTimeTracker.Client.Contract.Configuration;

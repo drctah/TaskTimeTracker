@@ -2,7 +2,7 @@
 using System.Xml;
 using Base.Configuration.Contract.Configuration;
 
-namespace TaskTimeTracker.Client.Configuration {
+namespace Base.Configuration {
   public abstract class XmlConfigurationSerializer<TConfiguration> : ConfigurationSerializer<TConfiguration, XmlWriter, XmlReader>
     where TConfiguration : IConfiguration {
     /// <summary>

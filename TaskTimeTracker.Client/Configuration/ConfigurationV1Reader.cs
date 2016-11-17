@@ -7,7 +7,7 @@ using TaskTimeTracker.Client.Contract.Configuration;
 
 namespace TaskTimeTracker.Client.Configuration {
   public class ConfigurationV1Reader : IConfigurationVersionedReader {
-    public Version MatchVersion { get { return new Version(1, 0); } }
+    public Version MatchVersion { get { return new Version(1, 0, 0, 0); } }
 
     public IConfiguration Read(XmlReader reader) {
       ITaskTimeTrackerConfiguration result = new TaskTimeTrackerConfiguration();

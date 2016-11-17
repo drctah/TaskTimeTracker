@@ -74,19 +74,15 @@
     <Compile Include="Configuration\TaskTimeTrackerConfigurationController.cs" />
     <Compile Include="Configuration\TaskTimeTrackerConfigurationSerializer.cs" />
     <Compile Include="Configuration\VersionedConfigurationReaderFactory.cs" />
-    <Compile Include="Configuration\XmlConfigurationController.cs" />
-    <Compile Include="Configuration\XmlConfigurationSerializer.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskValue.cs" />
     <Compile Include="Ui\Behaviors\TextBoxBehavior.cs" />
     <Compile Include="Ui\Commands\RelayCommand.cs" />
-    <Compile Include="Configuration\ConfigurationController.cs" />
     <Compile Include="Ui\ConfigurationWindow\ConfigurationViewModelController.cs" />
     <Compile Include="Ui\ConfigurationWindow\ConfigurationWindow.xaml.cs">
       <DependentUpon>ConfigurationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\ConfigurationWindow\ConfigurationWindowViewModel.cs" />
-    <Compile Include="Configuration\ConfigurationSerializer.cs" />
     <Compile Include="Ui\Inbox\Inbox.xaml.cs">
       <DependentUpon>Inbox.xaml</DependentUpon>
     </Compile>
@@ -157,6 +153,10 @@
     <ProjectReference Include="..\Base.Configuration.Contract\Base.Configuration.Contract.csproj">
       <Project>{11d877d5-3e7b-47ac-a2a7-eafdf3b9760f}</Project>
       <Name>Base.Configuration.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Base.Configuration\Base.Configuration.csproj">
+      <Project>{c44f4fe2-8a5c-49ce-b01f-bff51b5e64ba}</Project>
+      <Name>Base.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\Base.Serialization.Contract\Base.Serialization.Contract.csproj">
       <Project>{E605D3E6-95E3-4DD6-98D8-5CDD03C33AF4}</Project>

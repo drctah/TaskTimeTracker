@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.IO;
 using System.Windows;
 
 using MahApps.Metro.Controls;
@@ -14,7 +16,13 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
     public MainWindow() {
       InitializeComponent();
       TaskTimeTrackerConfigurationSerializer serializer = new TaskTimeTrackerConfigurationSerializer();
-      TaskTimeTrackerConfigurationController controller = new TaskTimeTrackerConfigurationController(serializer);
+      string configPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+      configPath += "/TaskTimeTracker";
+      if (!Directory.Exists(configPath)) {
+        Directory.CreateDirectory(configPath);
+      }
+      configPath += @"\TaskTimeTracker.conf";
+      TaskTimeTrackerConfigurationController controller = new TaskTimeTrackerConfigurationController(serializer, configPath);
       controller.Load();
       this._viewModel = new MainWindowViewModel(controller);
       this.DataContext = this._viewModel;
