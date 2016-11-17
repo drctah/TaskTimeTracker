@@ -33,6 +33,8 @@
     <system:String x:Key="ConfigurationWindow.CheckBoxes.StampOnStartup.Content">Stempel beim Starten setzen</system:String>
     <system:String x:Key="ConfigurationWindow.Buttons.Ok.Content">Ok</system:String>
     <system:String x:Key="ConfigurationWindow.Buttons.Cancel.Content">Abbrechen</system:String>
+
+    <system:String x:Key="ConfigurationWindow.TextBlocks.LockScreen.Text">Lockscreen</system:String>
     <system:String x:Key="ConfigurationWindow.CheckBoxes.StampOnLockScreen.Content">Stempel beim Lockscreen setzen</system:String>
     <system:String x:Key="ConfigurationWindow.TextBlocks.ScreenLocked.Text">Stempel fürs sperren</system:String>
     <system:String x:Key="ConfigurationWindow.TextBlocks.ScreenUnlocked.Text">Stempel fürs entsperren</system:String>

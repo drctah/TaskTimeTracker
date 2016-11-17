@@ -97,6 +97,12 @@
                 </StackPanel>
             </StackPanel>
 
+
+            <TextBlock Grid.Row="2"
+                 Grid.Column="0"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Text="{StaticResource ConfigurationWindow.TextBlocks.LockScreen.Text}" />
             <Border Grid.Row="2"
               Grid.Column="0"
               Grid.ColumnSpan="2"
