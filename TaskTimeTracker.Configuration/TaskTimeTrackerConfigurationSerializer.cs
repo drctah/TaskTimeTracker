@@ -10,12 +10,13 @@ namespace TaskTimeTracker.Configuration {
     protected override void SerializeInternal(XmlWriter writer, IConfiguration configuration) {
       WriteShortCutSection(writer, configuration);
       WriteSetStampOnStartupSection(writer, configuration);
+      WriteSetStampOnLockScreenSection(writer, configuration);
     }
 
     protected override IConfiguration DeserializeInternal(XmlReader reader, Version version) {
       VersionedConfigurationReaderFactory factory = new VersionedConfigurationReaderFactory();
       IConfigurationVersionedReader configurationV1Reader = factory.GetInstance<ConfigurationV1Reader>(version);
-      ITaskTimeTrackerConfiguration result = (ITaskTimeTrackerConfiguration) configurationV1Reader.Read(reader);
+      ITaskTimeTrackerConfiguration result = (ITaskTimeTrackerConfiguration)configurationV1Reader.Read(reader);
       return result;
     }
 
@@ -46,6 +47,21 @@ namespace TaskTimeTracker.Configuration {
 
       writer.WriteStartElement(nameof(taskTimeTrackerConfiguration.StartupStampText));
       writer.WriteElementString(nameof(taskTimeTrackerConfiguration.StartupStampText), taskTimeTrackerConfiguration.StartupStampText);
+      writer.WriteEndElement();
+    }
+
+    private void WriteSetStampOnLockScreenSection(XmlWriter writer, IConfiguration configuration) {
+      ITaskTimeTrackerConfiguration taskTimeTrackerConfiguration = (ITaskTimeTrackerConfiguration)configuration;
+      writer.WriteStartElement(nameof(taskTimeTrackerConfiguration.SetStampOnLockIsChecked));
+      writer.WriteElementString(nameof(taskTimeTrackerConfiguration.SetStampOnLockIsChecked), taskTimeTrackerConfiguration.SetStampOnLockIsChecked ? "1" : "0");
+      writer.WriteEndElement();
+
+      writer.WriteStartElement(nameof(taskTimeTrackerConfiguration.ScreenLockedText));
+      writer.WriteElementString(nameof(taskTimeTrackerConfiguration.ScreenLockedText), taskTimeTrackerConfiguration.ScreenLockedText);
+      writer.WriteEndElement();
+
+      writer.WriteStartElement(nameof(taskTimeTrackerConfiguration.ScreenUnlockedText));
+      writer.WriteElementString(nameof(taskTimeTrackerConfiguration.ScreenUnlockedText), taskTimeTrackerConfiguration.ScreenUnlockedText);
       writer.WriteEndElement();
     }
   }

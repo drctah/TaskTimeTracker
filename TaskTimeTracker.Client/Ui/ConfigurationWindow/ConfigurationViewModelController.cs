@@ -38,6 +38,11 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
       result.StartupStampText = configuration.StartupStampText;
       result.SetStampOnStartupIsChecked = configuration.SetStampOnStartupIsChecked;
       SetKey(configuration.KeyOne, result);
+
+      result.SetStampOnLockIsChecked = configuration.SetStampOnLockIsChecked;
+      result.ScreenLockedText = configuration.ScreenLockedText;
+      result.ScreenUnlockedText = configuration.ScreenUnlockedText;
+
       return result;
     }
   }

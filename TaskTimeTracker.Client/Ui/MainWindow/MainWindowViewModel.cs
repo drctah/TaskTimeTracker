@@ -66,15 +66,19 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
       this.MouseDoubleClick = new RelayCommand(this.MouseDoubleClickExecute);
       this.MainWindowVisibility = Visibility.Visible;
       this._configurationController = configurationController;
-      this.Configuration = (ITaskTimeTrackerConfiguration) this._configurationController.Configuration;
+      this.Configuration = (ITaskTimeTrackerConfiguration)this._configurationController.Configuration;
       Microsoft.Win32.SystemEvents.SessionSwitch += new Microsoft.Win32.SessionSwitchEventHandler(OnSystemSessenSwitchEvent);
     }
 
     private void OnSystemSessenSwitchEvent(object sender, SessionSwitchEventArgs e) {
+      if (!this.Configuration.SetStampOnLockIsChecked) {
+        return;
+      }
+
       if (e.Reason == SessionSwitchReason.SessionLock) {
-        this.AddNewTimeStamp("Gone");
+        this.AddNewTimeStamp(this.Configuration.ScreenLockedText);
       } else if (e.Reason == SessionSwitchReason.SessionUnlock) {
-        AddNewTimeStamp("Back");
+        AddNewTimeStamp(this.Configuration.ScreenUnlockedText);
       }
     }
 
@@ -94,12 +98,12 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
       configWindow.ViewModel = this._configViewModel;
       configWindow.ShowDialog();
 
-      if (this.Configuration.CompareTo((ITaskTimeTrackerConfiguration) this._configurationController.Configuration) == 0) {
+      if (this.Configuration.CompareTo((ITaskTimeTrackerConfiguration)this._configurationController.Configuration) == 0) {
         return;
       }
 
       this._configurationController.Save();
-      this.Configuration = (ITaskTimeTrackerConfiguration) this._configurationController.Configuration;
+      this.Configuration = (ITaskTimeTrackerConfiguration)this._configurationController.Configuration;
     }
 
     private void RemoveExecute(object obj) {

@@ -47,6 +47,9 @@ namespace TaskTimeTracker.Configuration {
       result.WindowsIsChecked = true;
       result.AltIsChecked = false;
       result.KeyOne = Key.N;
+
+      result.ScreenLockedText = "Away";
+      result.ScreenUnlockedText = "Back";
       return result;
     }
 
@@ -57,8 +60,14 @@ namespace TaskTimeTracker.Configuration {
       config.AltIsChecked = viewModel.AltIsChecked;
       config.ControlIsChecked = viewModel.ControlIsChecked;
       config.WindowsIsChecked = viewModel.WindowsIsChecked;
+
       config.StartupStampText = viewModel.StartupStampText;
       config.SetStampOnStartupIsChecked = viewModel.SetStampOnStartupIsChecked;
+
+      config.SetStampOnLockIsChecked = viewModel.SetStampOnLockIsChecked;
+      config.ScreenLockedText = viewModel.ScreenLockedText;
+      config.ScreenUnlockedText = viewModel.ScreenUnlockedText;
+
       this.Configuration = config;
     }
   }
