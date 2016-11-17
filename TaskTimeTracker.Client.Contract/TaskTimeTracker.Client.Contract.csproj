@@ -44,6 +44,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\IConfigurationViewModelController.cs" />
+    <Compile Include="Configuration\IConfigurationWindowViewModel.cs" />
     <Compile Include="Configuration\ITaskTimeTrackerConfiguration.cs" />
     <Compile Include="EditableDateTime.cs" />
     <Compile Include="IDataTransferObject.cs" />
@@ -52,6 +54,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Base.Configuration.Contract\Base.Configuration.Contract.csproj">
+      <Project>{11d877d5-3e7b-47ac-a2a7-eafdf3b9760f}</Project>
+      <Name>Base.Configuration.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Base.Serialization.Contract\Base.Serialization.Contract.csproj">
       <Project>{e605d3e6-95e3-4dd6-98d8-5cdd03c33af4}</Project>
       <Name>Base.Serialization.Contract</Name>

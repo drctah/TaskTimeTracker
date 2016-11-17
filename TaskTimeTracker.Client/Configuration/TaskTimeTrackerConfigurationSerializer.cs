@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Xml;
+using Base.Configuration.Contract.Configuration;
+using Base.Configuration.Contract.Configuration.Serialization;
 using TaskTimeTracker.Client.Contract.Configuration;
-using TaskTimeTracker.Client.Contract.Configuration.Serialization;
 
 namespace TaskTimeTracker.Client.Configuration {
   public class TaskTimeTrackerConfigurationSerializer : XmlConfigurationSerializer<IConfiguration> {
@@ -13,7 +14,7 @@ namespace TaskTimeTracker.Client.Configuration {
     protected override IConfiguration DeserializeInternal(XmlReader reader, Version version) {
       VersionedConfigurationReaderFactory factory = new VersionedConfigurationReaderFactory();
       IConfigurationVersionedReader configurationV1Reader = factory.GetInstance<ConfigurationV1Reader>(version);
-      ITaskTimeTrackerConfiguration result = configurationV1Reader.Read(reader);
+      ITaskTimeTrackerConfiguration result = (ITaskTimeTrackerConfiguration) configurationV1Reader.Read(reader);
       return result;
     }
 

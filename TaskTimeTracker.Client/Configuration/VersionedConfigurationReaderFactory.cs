@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using TaskTimeTracker.Client.Contract.Configuration.Serialization;
+using Base.Configuration.Contract.Configuration.Serialization;
 
 namespace TaskTimeTracker.Client.Configuration {
   public class VersionedConfigurationReaderFactory {

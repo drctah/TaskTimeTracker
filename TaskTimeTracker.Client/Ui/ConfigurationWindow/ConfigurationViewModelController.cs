@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using Base.Configuration.Contract.Configuration;
 using TaskTimeTracker.Client.Contract.Configuration;
 
 namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {

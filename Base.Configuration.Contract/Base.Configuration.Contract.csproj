@@ -44,12 +44,15 @@
     <Compile Include="Configuration\IConfigurationController.cs" />
     <Compile Include="Configuration\IConfigurationDataTransferObject.cs" />
     <Compile Include="Configuration\IConfigurationSection.cs" />
-    <Compile Include="Configuration\IConfigurationViewModelController.cs" />
-    <Compile Include="Configuration\IConfigurationWindowViewModel.cs" />
     <Compile Include="Configuration\ISectionedConfiguration.cs" />
-    <Compile Include="Configuration\ITaskTimeTrackerConfiguration.cs" />
     <Compile Include="Configuration\Serialization\IConfigurationVersionedReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TaskTimeTracker.IO.Contract\TaskTimeTracker.IO.Contract.csproj">
+      <Project>{B6D5111F-E6EC-4A93-B6E7-2D731BEB1AC0}</Project>
+      <Name>TaskTimeTracker.IO.Contract</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

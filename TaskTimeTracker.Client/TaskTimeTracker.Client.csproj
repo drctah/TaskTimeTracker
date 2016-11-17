@@ -154,6 +154,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Base.Configuration.Contract\Base.Configuration.Contract.csproj">
+      <Project>{11d877d5-3e7b-47ac-a2a7-eafdf3b9760f}</Project>
+      <Name>Base.Configuration.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Base.Serialization.Contract\Base.Serialization.Contract.csproj">
       <Project>{E605D3E6-95E3-4DD6-98D8-5CDD03C33AF4}</Project>
       <Name>Base.Serialization.Contract</Name>
