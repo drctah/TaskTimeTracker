@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
+using Microsoft.Win32;
 using TaskTimeTracker.Client.Configuration;
 using TaskTimeTracker.Client.Contract.Configuration;
 using TaskTimeTracker.Client.Ui.Commands;
@@ -66,6 +67,15 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
       this.MainWindowVisibility = Visibility.Visible;
       this._configurationController = configurationController;
       this.Configuration = this._configurationController.Configuration;
+      Microsoft.Win32.SystemEvents.SessionSwitch += new Microsoft.Win32.SessionSwitchEventHandler(OnSystemSessenSwitchEvent);
+    }
+
+    private void OnSystemSessenSwitchEvent(object sender, SessionSwitchEventArgs e) {
+      if (e.Reason == SessionSwitchReason.SessionLock) {
+        this.AddNewTimeStamp("Gone");
+      } else if (e.Reason == SessionSwitchReason.SessionUnlock) {
+        AddNewTimeStamp("Back");
+      }
     }
 
     private void MouseDoubleClickExecute(object o) {
@@ -107,6 +117,10 @@ namespace TaskTimeTracker.Client.Ui.MainWindow {
 
       string text = inboxViewModel.Text;
 
+      AddNewTimeStamp(text);
+    }
+
+    private void AddNewTimeStamp(string text) {
       DateTime dateTime = DateTime.Now;
       Task newTask = new Task(dateTime, text);
       this.Tasks.Add(newTask);
