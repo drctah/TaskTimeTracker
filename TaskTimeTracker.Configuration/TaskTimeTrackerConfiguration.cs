@@ -9,8 +9,13 @@ namespace TaskTimeTracker.Configuration {
     public bool ControlIsChecked { get; set; }
     public bool AltIsChecked { get; set; }
     public bool WindowsIsChecked { get; set; }
+
     public bool SetStampOnStartupIsChecked { get; set; }
     public string StartupStampText { get; set; }
+
+    public bool SetStampOnLockIsChecked { get; set; }
+    public string ScreenLockedText { get; set; }
+    public string ScreenUnlockedText { get; set; }
 
     public int CompareTo(ITaskTimeTrackerConfiguration other) {
       int result = this.KeyOne.CompareTo(other.KeyOne);
@@ -39,6 +44,21 @@ namespace TaskTimeTracker.Configuration {
       }
 
       result = String.Compare(this.StartupStampText, other.StartupStampText, StringComparison.Ordinal);
+      if (result != 0) {
+        return result;
+      }
+
+      result = this.SetStampOnLockIsChecked.CompareTo(other.SetStampOnLockIsChecked);
+      if (result != 0) {
+        return result;
+      }
+
+      result = String.Compare(this.ScreenLockedText, other.ScreenLockedText, StringComparison.Ordinal);
+      if (result != 0) {
+        return result;
+      }
+
+      result = String.Compare(this.ScreenUnlockedText, other.ScreenUnlockedText, StringComparison.Ordinal);
       return result;
     }
   }

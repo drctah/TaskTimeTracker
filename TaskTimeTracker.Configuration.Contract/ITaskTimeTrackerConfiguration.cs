@@ -8,7 +8,13 @@ namespace TaskTimeTracker.Configuration.Contract {
     bool ControlIsChecked { get; set; }
     bool AltIsChecked { get; set; }
     bool WindowsIsChecked { get; set; }
+
     bool SetStampOnStartupIsChecked { get; set; }
     string StartupStampText { get; set; }
+
+    bool SetStampOnLockIsChecked { get; set; }
+    string ScreenLockedText { get; set; }
+    string ScreenUnlockedText { get; set; }
+
   }
 }

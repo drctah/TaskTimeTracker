@@ -14,6 +14,9 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
     private bool _windowsIsChecked;
     private string _startupStampText;
     private bool _setStampOnStartupIsChecked;
+    private bool _setStampOnLockIsChecked;
+    private string _screenLockedText;
+    private string _screenUnlockedText;
 
     public event PropertyChangedEventHandler PropertyChanged;
 
@@ -73,6 +76,30 @@ namespace TaskTimeTracker.Client.Ui.ConfigurationWindow {
       set {
         this._windowsIsChecked = value;
         OnPropertyChanged(nameof(this.WindowsIsChecked));
+      }
+    }
+
+    public bool SetStampOnLockIsChecked {
+      get { return this._setStampOnLockIsChecked; }
+      set {
+        this._setStampOnLockIsChecked = value;
+        OnPropertyChanged(nameof(this.SetStampOnLockIsChecked));
+      }
+    }
+
+    public string ScreenLockedText {
+      get { return this._screenLockedText; }
+      set {
+        this._screenLockedText = value;
+        OnPropertyChanged(nameof(this.ScreenLockedText));
+      }
+    }
+
+    public string ScreenUnlockedText {
+      get { return this._screenUnlockedText; }
+      set {
+        this._screenUnlockedText = value;
+        OnPropertyChanged(nameof(this.ScreenUnlockedText));
       }
     }
 

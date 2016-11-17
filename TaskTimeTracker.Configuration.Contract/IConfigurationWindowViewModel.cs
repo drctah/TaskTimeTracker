@@ -15,5 +15,9 @@ namespace TaskTimeTracker.Configuration.Contract {
     ICommand CancelCommand { get; }
     ICommand OkCommand { get; }
     IConfigurationViewModelController Controller { get; set; }
+
+    bool SetStampOnLockIsChecked { get; set; }
+    string ScreenLockedText { get; set; }
+    string ScreenUnlockedText { get; set; }
   }
 }

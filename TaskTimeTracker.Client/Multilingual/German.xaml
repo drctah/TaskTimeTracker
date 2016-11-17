@@ -2,35 +2,38 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-  <!--  MainWindow  -->
-  <system:String x:Key="MainWindow.Title">Zeitstempel</system:String>
-  <system:String x:Key="MainWindow.AddButton.Content">Hinzufügen</system:String>
-  <system:String x:Key="MainWindow.ConfigButton.Content">Konfiguration</system:String>
+    <!--  MainWindow  -->
+    <system:String x:Key="MainWindow.Title">Zeitstempel</system:String>
+    <system:String x:Key="MainWindow.AddButton.Content">Hinzufügen</system:String>
+    <system:String x:Key="MainWindow.ConfigButton.Content">Konfiguration</system:String>
 
-  <!--  Tasklist Entry  -->
-  <system:String x:Key="TaskList.Entry.EditButton.Content">Bearbeiten</system:String>
-  <system:String x:Key="TaskList.Entry.SaveButton.Content">Speichern</system:String>
-  <system:String x:Key="TaskList.Entry.AbortButton.Content">Abbrechen</system:String>
-  <!--  ContextMenu  -->
-  <system:String x:Key="TaskList.Entry.ContextMenu.Copy">Kopieren</system:String>
-  <system:String x:Key="TaskList.Entry.ContextMenu.Delete">Löschen</system:String>
+    <!--  Tasklist Entry  -->
+    <system:String x:Key="TaskList.Entry.EditButton.Content">Bearbeiten</system:String>
+    <system:String x:Key="TaskList.Entry.SaveButton.Content">Speichern</system:String>
+    <system:String x:Key="TaskList.Entry.AbortButton.Content">Abbrechen</system:String>
+    <!--  ContextMenu  -->
+    <system:String x:Key="TaskList.Entry.ContextMenu.Copy">Kopieren</system:String>
+    <system:String x:Key="TaskList.Entry.ContextMenu.Delete">Löschen</system:String>
 
-  <!--  Inbox Window  -->
-  <system:String x:Key="Inbox.Title">Neuer Zeitstempel</system:String>
-  <system:String x:Key="Inbox.Buttons.Ok.Content">Ok</system:String>
-  <system:String x:Key="Inbox.Buttons.Abort.Content">Abbrechen</system:String>
-  <system:String x:Key="Inbox.TextBlocks.Description.Text">Beschreibung:</system:String>
+    <!--  Inbox Window  -->
+    <system:String x:Key="Inbox.Title">Neuer Zeitstempel</system:String>
+    <system:String x:Key="Inbox.Buttons.Ok.Content">Ok</system:String>
+    <system:String x:Key="Inbox.Buttons.Abort.Content">Abbrechen</system:String>
+    <system:String x:Key="Inbox.TextBlocks.Description.Text">Beschreibung:</system:String>
 
-  <!--  Configuration Window  -->
-  <system:String x:Key="ConfigurationWindow.Title">Konfiguration</system:String>
-  <system:String x:Key="ConfigurationWindow.TextBlocks.ShortCut.Text">ShortCut</system:String>
-  <system:String x:Key="ConfigurationWindow.TextBlocks.Key.Text">Taste</system:String>
-  <system:String x:Key="ConfigurationWindow.TextBlocks.Startup.Text">Start</system:String>
-  <system:String x:Key="ConfigurationWindow.TextBlocks.StampText.Text">Text für Stempel</system:String>
-  <system:String x:Key="ConfigurationWindow.CheckBoxes.Ctrl.Content">Strg</system:String>
-  <system:String x:Key="ConfigurationWindow.CheckBoxes.Windows.Content">Windows</system:String>
-  <system:String x:Key="ConfigurationWindow.CheckBoxes.Alt.Content">Alt</system:String>
-  <system:String x:Key="ConfigurationWindow.CheckBoxes.StampOnStartup.Content">Stempel beim Starten setzen</system:String>
-  <system:String x:Key="ConfigurationWindow.Buttons.Ok.Content">Ok</system:String>
-  <system:String x:Key="ConfigurationWindow.Buttons.Cancel.Content">Abbrechen</system:String>
+    <!--  Configuration Window  -->
+    <system:String x:Key="ConfigurationWindow.Title">Konfiguration</system:String>
+    <system:String x:Key="ConfigurationWindow.TextBlocks.ShortCut.Text">ShortCut</system:String>
+    <system:String x:Key="ConfigurationWindow.TextBlocks.Key.Text">Taste</system:String>
+    <system:String x:Key="ConfigurationWindow.TextBlocks.Startup.Text">Start</system:String>
+    <system:String x:Key="ConfigurationWindow.TextBlocks.StampText.Text">Text für Stempel</system:String>
+    <system:String x:Key="ConfigurationWindow.CheckBoxes.Ctrl.Content">Strg</system:String>
+    <system:String x:Key="ConfigurationWindow.CheckBoxes.Windows.Content">Windows</system:String>
+    <system:String x:Key="ConfigurationWindow.CheckBoxes.Alt.Content">Alt</system:String>
+    <system:String x:Key="ConfigurationWindow.CheckBoxes.StampOnStartup.Content">Stempel beim Starten setzen</system:String>
+    <system:String x:Key="ConfigurationWindow.Buttons.Ok.Content">Ok</system:String>
+    <system:String x:Key="ConfigurationWindow.Buttons.Cancel.Content">Abbrechen</system:String>
+    <system:String x:Key="ConfigurationWindow.CheckBoxes.StampOnLockScreen.Content">Stempel beim Lockscreen setzen</system:String>
+    <system:String x:Key="ConfigurationWindow.TextBlocks.ScreenLocked.Text">Stempel fürs sperren</system:String>
+    <system:String x:Key="ConfigurationWindow.TextBlocks.ScreenUnlocked.Text">Stempel fürs entsperren</system:String>
 </ResourceDictionary>
