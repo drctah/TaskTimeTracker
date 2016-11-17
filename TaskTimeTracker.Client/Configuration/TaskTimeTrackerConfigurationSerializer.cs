@@ -13,7 +13,8 @@ namespace TaskTimeTracker.Client.Configuration {
     protected override IConfiguration DeserializeInternal(XmlReader reader, Version version) {
       VersionedConfigurationReaderFactory factory = new VersionedConfigurationReaderFactory();
       IConfigurationVersionedReader configurationV1Reader = factory.GetInstance<ConfigurationV1Reader>(version);
-      return configurationV1Reader.Read(reader);
+      ITaskTimeTrackerConfiguration result = configurationV1Reader.Read(reader);
+      return result;
     }
 
     private void WriteShortCutSection(XmlWriter writer, IConfiguration configuration) {

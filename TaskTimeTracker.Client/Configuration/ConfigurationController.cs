@@ -28,6 +28,8 @@ namespace TaskTimeTracker.Client.Configuration {
 
     public abstract IConfiguration Load();
 
+    public abstract IConfiguration CreateDefaultConfiguration();
+
     /// <summary>
     /// Creates the config from a viewModel
     /// </summary>
